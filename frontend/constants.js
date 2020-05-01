@@ -93,7 +93,7 @@ const itemDetailsGetByIdQueryParams = {
     attributes:
       "name,poNum,status,budgetSentDate,imageProposalSentDate,artPlanSentDate,receivableStatus",
   },
-  notes: { attributes: "contents,authorName,updatedAt" },
+  notes: { attributes: "contents,author_name,updatedAt" },
   vendorOrderReplacements: { attributes: "itemNumber,completed,updatedAt" },
   installers: { attributes: "name" },
 };
@@ -321,7 +321,7 @@ export const itemDetailFieldsByItemType = {
   ],
   notes: [
     {
-      columnName: "authorName",
+      columnName: "author_name",
       displayName: "Author",
       type: "text",
       isReadOnly: true,

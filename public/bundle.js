@@ -2021,7 +2021,7 @@ var itemDetailsGetByIdQueryParams = {
     attributes: "name,poNum,status,budgetSentDate,imageProposalSentDate,artPlanSentDate,receivableStatus"
   },
   notes: {
-    attributes: "contents,authorName,updatedAt"
+    attributes: "contents,author_name,updatedAt"
   },
   vendorOrderReplacements: {
     attributes: "itemNumber,completed,updatedAt"
@@ -2347,7 +2347,7 @@ var itemDetailFieldsByItemType = {
     type: "checkbox"
   }],
   notes: [{
-    columnName: "authorName",
+    columnName: "author_name",
     displayName: "Author",
     type: "text",
     isReadOnly: true
