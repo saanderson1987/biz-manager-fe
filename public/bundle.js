@@ -1127,8 +1127,7 @@ var NewItemDetail = function NewItemDetail(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _util_functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/functions */ "./util/functions.js");
-/* harmony import */ var _util_functions__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_util_functions__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils */ "./utils/index.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants */ "./frontend/constants.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store */ "./frontend/store.jsx");
 /* harmony import */ var _NewItemDetail__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NewItemDetail */ "./frontend/components/NewItemDetail.jsx");
@@ -1188,7 +1187,7 @@ var NewItemForm = function NewItemForm(_ref) {
     className: "form"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-header"
-  }, "Create New ", Object(_util_functions__WEBPACK_IMPORTED_MODULE_1__["capitalize"])(_constants__WEBPACK_IMPORTED_MODULE_2__["itemNameByItemType"][type])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Create New ", Object(_utils__WEBPACK_IMPORTED_MODULE_1__["capitalize"])(_constants__WEBPACK_IMPORTED_MODULE_2__["itemNameByItemType"][type])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "form-table"
@@ -1390,8 +1389,7 @@ var Tab = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(fu
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _util_functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../util/functions */ "./util/functions.js");
-/* harmony import */ var _util_functions__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_util_functions__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils */ "./utils/index.js");
 
 
 
@@ -1411,11 +1409,11 @@ var DisplayValue = function DisplayValue(_ref) {
   }
 
   if (type === "date") {
-    displayValue = Object(_util_functions__WEBPACK_IMPORTED_MODULE_1__["getDateString"])(value);
+    displayValue = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getDateString"])(value);
   }
 
   if (type === "radio") {
-    displayValue = Object(_util_functions__WEBPACK_IMPORTED_MODULE_1__["capitalize"])(value);
+    displayValue = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["capitalize"])(value);
   }
 
   if (type === "text-box") {
@@ -1589,8 +1587,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
 /* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _util_functions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../util/functions */ "./util/functions.js");
-/* harmony import */ var _util_functions__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_util_functions__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils */ "./utils/index.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
@@ -1658,7 +1655,7 @@ var Input = function Input(_ref) {
         className: "radio-button-display-name"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: option.value
-      }, option.displayName || Object(_util_functions__WEBPACK_IMPORTED_MODULE_4__["capitalize"])(option.value))));
+      }, option.displayName || Object(_utils__WEBPACK_IMPORTED_MODULE_4__["capitalize"])(option.value))));
     });
   }
 
@@ -1911,25 +1908,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "itemNameByItemType", function() { return itemNameByItemType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newItemFormFieldsByItemType", function() { return newItemFormFieldsByItemType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getNewItemRecordBase", function() { return getNewItemRecordBase; });
-/* harmony import */ var lodash_clonedeep__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash.clonedeep */ "./node_modules/lodash.clonedeep/index.js");
-/* harmony import */ var lodash_clonedeep__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_clonedeep__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash.get */ "./node_modules/lodash.get/index.js");
-/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_get__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash.merge */ "./node_modules/lodash.merge/index.js");
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var lodash_update__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash.update */ "./node_modules/lodash.update/index.js");
-/* harmony import */ var lodash_update__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_update__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _util_functions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/functions */ "./util/functions.js");
-/* harmony import */ var _util_functions__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_util_functions__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./utils/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
 
 
 var tableNameListType = {
@@ -1971,7 +1955,7 @@ var apiRouteByItemType = {
   companies: "companies",
   clients: "companies",
   prospects: "companies",
-  contacts: "contacts",
+  contacts: "people",
   jobs: "jobs",
   jobOrders: "jobOrders",
   installations: "installations",
@@ -1983,43 +1967,43 @@ var apiRouteByItemType = {
 };
 var queryParamsByItemType = {
   companies: {
-    columns: "name"
+    attributes: "name"
   },
   clients: {
-    columns: "name",
+    attributes: "name",
     status: "client"
   },
   prospects: {
-    columns: "name",
+    attributes: "name",
     status: "prospect"
   },
   contacts: {
-    columns: "name"
+    attributes: "name"
   },
   jobs: {
-    columns: "name"
+    attributes: "name"
   },
   jobOrders: {
-    columns: "dateOrdered"
+    attributes: "dateOrdered"
   },
   installations: {
-    columns: "installationDate"
+    attributes: "installationDate"
   },
   vendorOrders: {
-    columns: "name,dateOrdered,doesHaveReplacements"
+    attributes: "name,dateOrdered,doesHaveReplacements"
   },
   vendors: {
-    columns: "name",
+    attributes: "name",
     status: "vendor"
   },
   notes: {
-    columns: "contents,updatedAt"
+    attributes: "contents,updatedAt"
   },
   vendorOrderReplacements: {
-    columns: "itemNumber"
+    attributes: "itemNumber"
   },
   installers: {
-    columns: "name"
+    attributes: "name"
   }
 };
 var createListGetByQueryOptions = function createListGetByQueryOptions(type, parentId, statePath) {
@@ -2031,19 +2015,19 @@ var createListGetByQueryOptions = function createListGetByQueryOptions(type, par
 };
 var itemDetailsGetByIdQueryParams = {
   contacts: {
-    columns: "name,phoneNum,email,position"
+    attributes: "name,phoneNum,email,position"
   },
   jobs: {
-    columns: "name,poNum,status,budgetSentDate,imageProposalSentDate,artPlanSentDate,receivableStatus"
+    attributes: "name,poNum,status,budgetSentDate,imageProposalSentDate,artPlanSentDate,receivableStatus"
   },
   notes: {
-    columns: "contents,authorName,updatedAt"
+    attributes: "contents,authorName,updatedAt"
   },
   vendorOrderReplacements: {
-    columns: "itemNumber,completed,updatedAt"
+    attributes: "itemNumber,completed,updatedAt"
   },
   installers: {
-    columns: "name"
+    attributes: "name"
   }
 };
 var getItemWarningByItemType = {
@@ -2066,7 +2050,7 @@ var onAddOrRemoveByType = {
         route: apiRouteByItemType[parentType],
         id: parentId,
         queryParams: {
-          columns: "doesHaveReplacements"
+          attributes: "doesHaveReplacements"
         },
         statePath: statePath.slice(0, statePath.length - 2)
       });
@@ -2149,13 +2133,13 @@ var getItemNameFuncByItemType = {
   jobOrders: function jobOrders(_ref2) {
     var dateOrdered = _ref2.dateOrdered;
     return {
-      itemName: dateOrdered && "Job order ordered on ".concat(Object(_util_functions__WEBPACK_IMPORTED_MODULE_4__["getDateString"])(dateOrdered))
+      itemName: dateOrdered && "Job order ordered on ".concat(Object(_utils__WEBPACK_IMPORTED_MODULE_0__["getDateString"])(dateOrdered))
     };
   },
   installations: function installations(_ref3) {
     var installationDate = _ref3.installationDate;
     return {
-      itemName: installationDate && "Installation set for ".concat(Object(_util_functions__WEBPACK_IMPORTED_MODULE_4__["getDateString"])(installationDate))
+      itemName: installationDate && "Installation set for ".concat(Object(_utils__WEBPACK_IMPORTED_MODULE_0__["getDateString"])(installationDate))
     };
   },
   vendorOrders: function vendorOrders(_ref4) {
@@ -2167,7 +2151,7 @@ var getItemNameFuncByItemType = {
       itemName = "".concat(vendorName, " ordered");
 
       if (dateOrdered) {
-        itemName += " on ".concat(Object(_util_functions__WEBPACK_IMPORTED_MODULE_4__["getDateString"])(dateOrdered));
+        itemName += " on ".concat(Object(_utils__WEBPACK_IMPORTED_MODULE_0__["getDateString"])(dateOrdered));
       }
     }
 
@@ -66718,32 +66702,36 @@ module.exports = content.locals || {};
 
 /***/ }),
 
-/***/ "./util/functions.js":
-/*!***************************!*\
-  !*** ./util/functions.js ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./utils/index.js":
+/*!************************!*\
+  !*** ./utils/index.js ***!
+  \************************/
+/*! exports provided: isEmpty, capitalize, uncapitalize, getDateString */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var moment = __webpack_require__(/*! moment */ "./node_modules/moment/src/moment.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEmpty", function() { return isEmpty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "capitalize", function() { return capitalize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uncapitalize", function() { return uncapitalize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDateString", function() { return getDateString; });
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/src/moment.js");
 
-module.exports = {
-  isEmpty: function isEmpty(obj) {
-    for (var key in obj) {
-      if (obj.hasOwnProperty(key)) return false;
-    }
-
-    return true; // return Object.keys(obj).length === 0;
-  },
-  capitalize: function capitalize(string) {
-    return typeof string === "string" ? string[0].toUpperCase() + string.slice(1) : string;
-  },
-  uncapitalize: function uncapitalize(string) {
-    return typeof string === "string" ? string[0].toLowerCase() + string.slice(1) : string;
-  },
-  getDateString: function getDateString(date) {
-    return date ? moment(date).locale(moment.locale()).format("L") : date;
+var isEmpty = function isEmpty(obj) {
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) return false;
   }
+
+  return true; // return Object.keys(obj).length === 0;
+};
+var capitalize = function capitalize(string) {
+  return typeof string === "string" ? string[0].toUpperCase() + string.slice(1) : string;
+};
+var uncapitalize = function uncapitalize(string) {
+  return typeof string === "string" ? string[0].toLowerCase() + string.slice(1) : string;
+};
+var getDateString = function getDateString(date) {
+  return date ? Object(moment__WEBPACK_IMPORTED_MODULE_0__["default"])(date).locale(moment__WEBPACK_IMPORTED_MODULE_0__["default"].locale()).format("L") : date;
 };
 
 /***/ })

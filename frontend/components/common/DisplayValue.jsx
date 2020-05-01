@@ -1,5 +1,5 @@
 import React from "react";
-import { getDateString, capitalize } from "../../../util/functions";
+import { getDateString, capitalize } from "../../../utils";
 
 const DisplayValue = ({ value, type, className }) => {
   let displayValue = value;

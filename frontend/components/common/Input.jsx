@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { capitalize } from "../../../util/functions";
+import { capitalize } from "../../../utils";
 
 // if props.save is defined and props.type is text, then `save` will be called if user presses enter in the text input.
 const Input = ({

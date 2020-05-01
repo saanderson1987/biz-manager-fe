@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { capitalize } from "../../util/functions";
+import { capitalize } from "../../utils";
 import {
   itemNameByItemType,
   newItemFormFieldsByItemType,

@@ -1,8 +1,4 @@
-import cloneDeep from "lodash.clonedeep";
-import get from "lodash.get";
-import merge from "lodash.merge";
-import update from "lodash.update";
-import { getDateString } from "../util/functions";
+import { getDateString } from "../utils";
 
 export const tableNameListType = {
   clients: "Companies",
@@ -44,7 +40,7 @@ export const apiRouteByItemType = {
   companies: "companies",
   clients: "companies",
   prospects: "companies",
-  contacts: "contacts",
+  contacts: "people",
   jobs: "jobs",
   jobOrders: "jobOrders",
   installations: "installations",
@@ -57,25 +53,25 @@ export const apiRouteByItemType = {
 
 export const queryParamsByItemType = {
   companies: {
-    columns: "name",
+    attributes: "name",
   },
   clients: {
-    columns: "name",
+    attributes: "name",
     status: "client",
   },
   prospects: {
-    columns: "name",
+    attributes: "name",
     status: "prospect",
   },
-  contacts: { columns: "name" },
-  jobs: { columns: "name" },
-  jobOrders: { columns: "dateOrdered" },
-  installations: { columns: "installationDate" },
-  vendorOrders: { columns: "name,dateOrdered,doesHaveReplacements" },
-  vendors: { columns: "name", status: "vendor" },
-  notes: { columns: "contents,updatedAt" },
-  vendorOrderReplacements: { columns: "itemNumber" },
-  installers: { columns: "name" },
+  contacts: { attributes: "name" },
+  jobs: { attributes: "name" },
+  jobOrders: { attributes: "dateOrdered" },
+  installations: { attributes: "installationDate" },
+  vendorOrders: { attributes: "name,dateOrdered,doesHaveReplacements" },
+  vendors: { attributes: "name", status: "vendor" },
+  notes: { attributes: "contents,updatedAt" },
+  vendorOrderReplacements: { attributes: "itemNumber" },
+  installers: { attributes: "name" },
 };
 
 export const createListGetByQueryOptions = (type, parentId, statePath) => {
@@ -91,15 +87,15 @@ export const createListGetByQueryOptions = (type, parentId, statePath) => {
 
 const itemDetailsGetByIdQueryParams = {
   contacts: {
-    columns: "name,phoneNum,email,position",
+    attributes: "name,phoneNum,email,position",
   },
   jobs: {
-    columns:
+    attributes:
       "name,poNum,status,budgetSentDate,imageProposalSentDate,artPlanSentDate,receivableStatus",
   },
-  notes: { columns: "contents,authorName,updatedAt" },
-  vendorOrderReplacements: { columns: "itemNumber,completed,updatedAt" },
-  installers: { columns: "name" },
+  notes: { attributes: "contents,authorName,updatedAt" },
+  vendorOrderReplacements: { attributes: "itemNumber,completed,updatedAt" },
+  installers: { attributes: "name" },
 };
 
 export const getItemWarningByItemType = {
@@ -118,7 +114,7 @@ export const onAddOrRemoveByType = {
       storeContext.getById({
         route: apiRouteByItemType[parentType],
         id: parentId,
-        queryParams: { columns: "doesHaveReplacements" },
+        queryParams: { attributes: "doesHaveReplacements" },
         statePath: statePath.slice(0, statePath.length - 2),
       });
     }
