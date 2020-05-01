@@ -13,7 +13,7 @@ if (process.env.NODE_ENV !== "production") {
 var app = express();
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+// app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 app.use(helmet());
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 app.use(express.static(__dirname + "/public"));
 
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 

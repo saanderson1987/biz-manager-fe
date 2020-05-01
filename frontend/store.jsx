@@ -7,7 +7,7 @@ import update from "lodash.update";
 
 export const StoreContext = createContext({});
 
-const baseUrl = "/api/";
+const baseUrl = "http://localhost:8000/";
 const handleError = (error) => console.log(error);
 const log = ({ functionName, statePath, oldState, data, newState }) => {
   console.groupCollapsed(`${functionName} at ${JSON.stringify(statePath)}`);
