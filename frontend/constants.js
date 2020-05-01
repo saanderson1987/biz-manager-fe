@@ -5,34 +5,34 @@ import update from "lodash.update";
 import { getDateString } from "../util/functions";
 
 export const tableNameListType = {
-  clients: "company",
-  prospects: "company",
-  vendors: "company",
-  contacts: "contact",
-  jobs: "job",
-  job_orders: "job_order",
-  installations: "installation",
-  vendor_orders: "vendor_order",
-  vendor_order_replacements: "vendor_order_replacement",
-  installers: "installer",
+  clients: "Companies",
+  prospects: "Companies",
+  vendors: "Companies",
+  contacts: "People",
+  jobs: "Jobs",
+  jobOrders: "JobOrders",
+  installations: "Installations",
+  vendorOrders: "VendorOrders",
+  vendorOrderReplacements: "VendorOrderReplacements",
+  installers: "Installer",
 };
 
 export const parentColumnByItemType = {
-  contacts: "company_id",
-  jobs: "company_id",
-  job_orders: "job_id",
-  installations: "job_order_id",
-  vendor_orders: "job_order_id",
-  notes: "parent_id",
-  vendor_order_replacements: "vendor_order_id",
-  installers: "installation_id",
+  contacts: "companyId",
+  jobs: "companyId",
+  jobOrders: "jobId",
+  installations: "jobOrderId",
+  vendorOrders: "jobOrderId",
+  notes: "parentId",
+  vendorOrderReplacements: "vendorOrderId",
+  installers: "installationId",
 };
 
 const createParentIdQuery = (type, parentId, statePath) => {
   if (type === "notes") {
     return {
-      parent_id: parentId,
-      parent_table: tableNameListType[statePath[statePath.length - 3]],
+      parentId: parentId,
+      parentTable: tableNameListType[statePath[statePath.length - 3]],
     };
   }
 
@@ -46,12 +46,12 @@ export const apiRouteByItemType = {
   prospects: "companies",
   contacts: "contacts",
   jobs: "jobs",
-  job_orders: "job_orders",
+  jobOrders: "jobOrders",
   installations: "installations",
-  vendor_orders: "vendor_orders",
+  vendorOrders: "vendorOrders",
   vendors: "companies",
   notes: "notes",
-  vendor_order_replacements: "vendor_order_replacements",
+  vendorOrderReplacements: "vendorOrderReplacements",
   installers: "installers",
 };
 
@@ -69,12 +69,12 @@ export const queryParamsByItemType = {
   },
   contacts: { columns: "name" },
   jobs: { columns: "name" },
-  job_orders: { columns: "date_ordered" },
-  installations: { columns: "installation_date" },
-  vendor_orders: { columns: "name,date_ordered,does_have_replacements" },
+  jobOrders: { columns: "dateOrdered" },
+  installations: { columns: "installationDate" },
+  vendorOrders: { columns: "name,dateOrdered,doesHaveReplacements" },
   vendors: { columns: "name", status: "vendor" },
-  notes: { columns: "contents,updated_at" },
-  vendor_order_replacements: { columns: "item_number" },
+  notes: { columns: "contents,updatedAt" },
+  vendorOrderReplacements: { columns: "itemNumber" },
   installers: { columns: "name" },
 };
 
@@ -91,34 +91,34 @@ export const createListGetByQueryOptions = (type, parentId, statePath) => {
 
 const itemDetailsGetByIdQueryParams = {
   contacts: {
-    columns: "name,phone_num,email,position",
+    columns: "name,phoneNum,email,position",
   },
   jobs: {
     columns:
-      "name,po_num,status,budget_sent_date,image_proposal_sent_date,art_plan_sent_date,receivable_status",
+      "name,poNum,status,budgetSentDate,imageProposalSentDate,artPlanSentDate,receivableStatus",
   },
-  notes: { columns: "contents,author_name,updated_at" },
-  vendor_order_replacements: { columns: "item_number,completed,updated_at" },
+  notes: { columns: "contents,authorName,updatedAt" },
+  vendorOrderReplacements: { columns: "itemNumber,completed,updatedAt" },
   installers: { columns: "name" },
 };
 
 export const getItemWarningByItemType = {
-  vendor_orders: (item) => {
-    if (item && item.does_have_replacements) {
+  vendorOrders: (item) => {
+    if (item && item.doesHaveReplacements) {
       return { message: "NEEDS REPLACEMENTS", color: "yellow" };
     }
   },
 };
 
 export const onAddOrRemoveByType = {
-  vendor_order_replacements: (statePath, storeContext) => {
+  vendorOrderReplacements: (statePath, storeContext) => {
     const parentType = statePath[statePath.length - 3];
     const parentId = statePath[statePath.length - 2];
     if (parentType && parentId) {
       storeContext.getById({
         route: apiRouteByItemType[parentType],
         id: parentId,
-        queryParams: { columns: "does_have_replacements" },
+        queryParams: { columns: "doesHaveReplacements" },
         statePath: statePath.slice(0, statePath.length - 2),
       });
     }
@@ -140,20 +140,20 @@ export const listNameByItemType = {
   prospects: "Prospects",
   contacts: "Contacts",
   jobs: "Jobs",
-  job_orders: "Job Orders",
+  jobOrders: "Job Orders",
   installations: "Installations",
-  vendor_orders: "Vendor Orders",
+  vendorOrders: "Vendor Orders",
   vendors: "Vendors",
   notes: "Notes",
-  vendor_order_replacements: "Replacements",
+  vendorOrderReplacements: "Replacements",
   installers: "Installers",
 };
 
 const defaultSortFieldByItemType = {
-  job_orders: "date_ordered",
-  installations: "installation_date",
-  notes: "updated_at",
-  vendor_order_replacements: "updated_at",
+  jobOrders: "dateOrdered",
+  installations: "installationDate",
+  notes: "updatedAt",
+  vendorOrderReplacements: "updatedAt",
 };
 
 export const getDefaultListSortFuncByItemType = (type) => {
@@ -175,21 +175,21 @@ export const getItemNameFuncByItemType = {
   prospects: (item) => ({ itemName: item.name, itemNameColumnName: "name" }),
   contacts: (item) => ({ itemName: item.name, itemNameColumnName: "name" }),
   jobs: (item) => ({ itemName: item.name, itemNameColumnName: "name" }),
-  job_orders: ({ date_ordered }) => ({
+  jobOrders: ({ dateOrdered }) => ({
     itemName:
-      date_ordered && `Job order ordered on ${getDateString(date_ordered)}`,
+      dateOrdered && `Job order ordered on ${getDateString(dateOrdered)}`,
   }),
-  installations: ({ installation_date }) => ({
+  installations: ({ installationDate }) => ({
     itemName:
-      installation_date &&
-      `Installation set for ${getDateString(installation_date)}`,
+      installationDate &&
+      `Installation set for ${getDateString(installationDate)}`,
   }),
-  vendor_orders: ({ name: vendorName, date_ordered }) => {
+  vendorOrders: ({ name: vendorName, dateOrdered }) => {
     let itemName;
     if (vendorName) {
       itemName = `${vendorName} ordered`;
-      if (date_ordered) {
-        itemName += ` on ${getDateString(date_ordered)}`;
+      if (dateOrdered) {
+        itemName += ` on ${getDateString(dateOrdered)}`;
       }
     }
     return { itemName };
@@ -205,29 +205,29 @@ export const getItemNameFuncByItemType = {
       itemName,
     };
   },
-  vendor_order_replacements: ({ item_number }) => ({
-    itemName: `Item number ${item_number}`,
+  vendorOrderReplacements: ({ itemNumber }) => ({
+    itemName: `Item number ${itemNumber}`,
   }),
   installers: (item) => ({ itemName: item.name, itemNameColumnName: "name" }),
 };
 
 const jobStatusDisplayNameByType = {
-  in_progress: "In Progress",
-  on_hold: "On Hold",
+  inProgress: "In Progress",
+  onHold: "On Hold",
   completed: "Completed",
 };
 
 export const itemListsByItemType = {
   clients: [{ type: "contacts" }, { type: "notes" }, { type: "jobs" }],
   prospects: [{ type: "contacts" }, { type: "notes" }, { type: "jobs" }],
-  jobs: [{ type: "notes" }, { type: "job_orders" }],
-  job_orders: [
+  jobs: [{ type: "notes" }, { type: "jobOrders" }],
+  jobOrders: [
     { type: "notes" },
-    { type: "vendor_orders" },
+    { type: "vendorOrders" },
     { type: "installations" },
   ],
-  vendor_orders: [{ type: "notes" }, { type: "vendor_order_replacements" }],
-  vendor_order_replacements: [{ type: "notes" }],
+  vendorOrders: [{ type: "notes" }, { type: "vendorOrderReplacements" }],
+  vendorOrderReplacements: [{ type: "notes" }],
   installations: [{ type: "installers" }],
 };
 
@@ -248,22 +248,22 @@ export const itemDetailFieldsByItemType = {
   ],
   contacts: [
     { columnName: "name", type: "text" },
-    { columnName: "phone_num", displayName: "Phone Number", type: "text" },
+    { columnName: "phoneNum", displayName: "Phone Number", type: "text" },
     { columnName: "email", type: "text" },
     { columnName: "position", type: "text" },
   ],
   jobs: [
-    { columnName: "po_num", displayName: "PO #", type: "text" },
+    { columnName: "poNum", displayName: "PO #", type: "text" },
     {
       columnName: "status",
       type: "dropdown",
       getDisplayValue: (value) => jobStatusDisplayNameByType[value],
       valueOptions: [
         {
-          value: "in_progress",
-          displayName: jobStatusDisplayNameByType.in_progress,
+          value: "inProgress",
+          displayName: jobStatusDisplayNameByType.inProgress,
         },
-        { value: "on_hold", displayName: jobStatusDisplayNameByType.on_hold },
+        { value: "onHold", displayName: jobStatusDisplayNameByType.onHold },
         {
           value: "completed",
           displayName: jobStatusDisplayNameByType.completed,
@@ -271,7 +271,7 @@ export const itemDetailFieldsByItemType = {
       ],
     },
     {
-      columnName: "receivable_status",
+      columnName: "receivableStatus",
       displayName: "Receivable Status",
       type: "dropdown",
       valueOptions: [
@@ -286,38 +286,38 @@ export const itemDetailFieldsByItemType = {
       ],
     },
     {
-      columnName: "budget_sent_date",
+      columnName: "budgetSentDate",
       displayName: "Budget Sent Date",
       type: "date",
     },
     {
-      columnName: "image_proposal_sent_date",
+      columnName: "imageProposalSentDate",
       displayName: "Image Proposal Sent Date",
       type: "date",
     },
     {
-      columnName: "art_plan_sent_date",
+      columnName: "artPlanSentDate",
       displayName: "Art Plan Sent Date",
       type: "date",
     },
   ],
-  job_orders: [
-    { columnName: "date_ordered", displayName: "Date Ordered", type: "date" },
+  jobOrders: [
+    { columnName: "dateOrdered", displayName: "Date Ordered", type: "date" },
   ],
   installations: [
     {
-      columnName: "installation_date",
+      columnName: "installationDate",
       displayName: "Install Date",
       type: "date",
     },
     { columnName: "completed", type: "checkbox" },
   ],
-  vendor_orders: [
-    { columnName: "po_num", displayName: "Invoice / PO #", type: "text" },
-    { columnName: "tracking_num", displayName: "Tracking #", type: "text" },
-    { columnName: "date_ordered", type: "date" },
+  vendorOrders: [
+    { columnName: "poNum", displayName: "Invoice / PO #", type: "text" },
+    { columnName: "trackingNum", displayName: "Tracking #", type: "text" },
+    { columnName: "dateOrdered", type: "date" },
     {
-      columnName: "number_of_pieces",
+      columnName: "numberOfPieces",
       displayName: "Number of Pieces",
       type: "text",
     },
@@ -325,21 +325,21 @@ export const itemDetailFieldsByItemType = {
   ],
   notes: [
     {
-      columnName: "author_name",
+      columnName: "authorName",
       displayName: "Author",
       type: "text",
       isReadOnly: true,
     },
     {
-      columnName: "updated_at",
+      columnName: "updatedAt",
       displayName: "Last Updated",
       type: "date",
       isReadOnly: true,
     },
     { columnName: "contents", type: "text-box" },
   ],
-  vendor_order_replacements: [
-    { columnName: "item_number", displayName: "Item Number" },
+  vendorOrderReplacements: [
+    { columnName: "itemNumber", displayName: "Item Number" },
     { columnName: "completed", type: "checkbox" },
   ],
   installers: [],
@@ -351,12 +351,12 @@ export const itemNameByItemType = {
   prospects: "Company",
   contact: "Contact",
   jobs: "Job",
-  job_orders: "Job Order",
+  jobOrders: "Job Order",
   installations: "Installation",
-  vendor_orders: "Vendor Order",
+  vendorOrders: "Vendor Order",
   vendors: "Vendor",
   notes: "Note",
-  vendor_order_replacements: "Replacement",
+  vendorOrderReplacements: "Replacement",
   installers: "Installer",
 };
 
@@ -390,15 +390,15 @@ export const newItemFormFieldsByItemType = {
   ],
   contacts: [
     { columnName: "name" },
-    { columnName: "phone_num", displayName: "Phone Number" },
+    { columnName: "phoneNum", displayName: "Phone Number" },
     { columnName: "email" },
     { columnName: "position" },
   ],
   jobs: [
     { columnName: "name" },
-    { columnName: "po_num", displayName: "PO #" },
+    { columnName: "poNum", displayName: "PO #" },
     {
-      columnName: "receivable_status",
+      columnName: "receivableStatus",
       type: "dropdown",
       valueOptions: [
         {
@@ -411,36 +411,36 @@ export const newItemFormFieldsByItemType = {
       ],
     },
   ],
-  job_orders: [
-    { columnName: "date_ordered", displayName: "Date Ordered", type: "date" },
+  jobOrders: [
+    { columnName: "dateOrdered", displayName: "Date Ordered", type: "date" },
     { columnName: "notes" },
   ],
   installations: [
     {
-      columnName: "installation_date",
+      columnName: "installationDate",
       displayName: "Install Date",
       type: "date",
     },
     { columnName: "completed", type: "checkbox" },
   ],
-  vendor_orders: [
+  vendorOrders: [
     {
-      columnName: "vendor_id",
+      columnName: "vendorId",
       displayName: "Vendor Name",
       type: "dropdown-with-query",
       dropdownItemType: "vendors",
     },
-    { columnName: "po_num", displayName: "Invoice/ PO #" },
-    { columnName: "tracking_num", displayName: "Tracking #" },
-    { columnName: "date_ordered", displayName: "Date Ordered", type: "date" },
-    { columnName: "number_of_pieces", displayName: "Number of Pieces" },
+    { columnName: "poNum", displayName: "Invoice/ PO #" },
+    { columnName: "trackingNum", displayName: "Tracking #" },
+    { columnName: "dateOrdered", displayName: "Date Ordered", type: "date" },
+    { columnName: "numberOfPieces", displayName: "Number of Pieces" },
     { columnName: "completed", type: "checkbox" },
     { columnName: "notes" },
   ],
   vendors: [{ columnName: "name" }, { columnName: "notes" }],
   notes: [{ columnName: "contents" }],
-  vendor_order_replacements: [
-    { columnName: "item_number", displayName: "Item Number" },
+  vendorOrderReplacements: [
+    { columnName: "itemNumber", displayName: "Item Number" },
     { columnName: "completed", type: "checkbox" },
     { columnName: "notes" },
   ],
@@ -463,13 +463,13 @@ export const getNewItemRecordBase = ({
     baseRecord.author = userId;
   }
   if (type === "notes" && parentId && parentType) {
-    baseRecord.parent_table = tableNameListType[parentType];
+    baseRecord.parentTable = tableNameListType[parentType];
   }
   if (type === "vendors") {
     baseRecord.status = "vendor";
   }
   if (type === "jobs") {
-    baseRecord.status = "in_progress";
+    baseRecord.status = "inProgress";
   }
 
   return baseRecord;

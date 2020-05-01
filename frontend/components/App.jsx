@@ -17,7 +17,7 @@ export default () => (
       <Route
         path="/orders"
         render={() => (
-          <List type="job_orders" statePath={["job_orders"]} isRoot />
+          <List type="jobOrders" statePath={["jobOrders"]} isRoot />
         )}
       />
       <Route

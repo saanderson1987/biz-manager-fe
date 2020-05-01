@@ -23,7 +23,7 @@ export const StoreProvider = ({ children }) => {
     vendors: {},
     clients: {},
     jobs: {},
-    job_orders: {},
+    jobOrders: {},
     installations: {},
     authentication: {
       isAuthenticated: null /* set to null to prevent the Login screen from flashing upon reload if user is authenticated */,

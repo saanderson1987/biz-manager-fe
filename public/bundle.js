@@ -125,8 +125,8 @@ __webpack_require__.r(__webpack_exports__);
     path: "/orders",
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_List__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        type: "job_orders",
-        statePath: ["job_orders"],
+        type: "jobOrders",
+        statePath: ["jobOrders"],
         isRoot: true
       });
     }
@@ -1933,33 +1933,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var tableNameListType = {
-  clients: "company",
-  prospects: "company",
-  vendors: "company",
-  contacts: "contact",
-  jobs: "job",
-  job_orders: "job_order",
-  installations: "installation",
-  vendor_orders: "vendor_order",
-  vendor_order_replacements: "vendor_order_replacement",
-  installers: "installer"
+  clients: "Companies",
+  prospects: "Companies",
+  vendors: "Companies",
+  contacts: "People",
+  jobs: "Jobs",
+  jobOrders: "JobOrders",
+  installations: "Installations",
+  vendorOrders: "VendorOrders",
+  vendorOrderReplacements: "VendorOrderReplacements",
+  installers: "Installer"
 };
 var parentColumnByItemType = {
-  contacts: "company_id",
-  jobs: "company_id",
-  job_orders: "job_id",
-  installations: "job_order_id",
-  vendor_orders: "job_order_id",
-  notes: "parent_id",
-  vendor_order_replacements: "vendor_order_id",
-  installers: "installation_id"
+  contacts: "companyId",
+  jobs: "companyId",
+  jobOrders: "jobId",
+  installations: "jobOrderId",
+  vendorOrders: "jobOrderId",
+  notes: "parentId",
+  vendorOrderReplacements: "vendorOrderId",
+  installers: "installationId"
 };
 
 var createParentIdQuery = function createParentIdQuery(type, parentId, statePath) {
   if (type === "notes") {
     return {
-      parent_id: parentId,
-      parent_table: tableNameListType[statePath[statePath.length - 3]]
+      parentId: parentId,
+      parentTable: tableNameListType[statePath[statePath.length - 3]]
     };
   }
 
@@ -1973,12 +1973,12 @@ var apiRouteByItemType = {
   prospects: "companies",
   contacts: "contacts",
   jobs: "jobs",
-  job_orders: "job_orders",
+  jobOrders: "jobOrders",
   installations: "installations",
-  vendor_orders: "vendor_orders",
+  vendorOrders: "vendorOrders",
   vendors: "companies",
   notes: "notes",
-  vendor_order_replacements: "vendor_order_replacements",
+  vendorOrderReplacements: "vendorOrderReplacements",
   installers: "installers"
 };
 var queryParamsByItemType = {
@@ -1999,24 +1999,24 @@ var queryParamsByItemType = {
   jobs: {
     columns: "name"
   },
-  job_orders: {
-    columns: "date_ordered"
+  jobOrders: {
+    columns: "dateOrdered"
   },
   installations: {
-    columns: "installation_date"
+    columns: "installationDate"
   },
-  vendor_orders: {
-    columns: "name,date_ordered,does_have_replacements"
+  vendorOrders: {
+    columns: "name,dateOrdered,doesHaveReplacements"
   },
   vendors: {
     columns: "name",
     status: "vendor"
   },
   notes: {
-    columns: "contents,updated_at"
+    columns: "contents,updatedAt"
   },
-  vendor_order_replacements: {
-    columns: "item_number"
+  vendorOrderReplacements: {
+    columns: "itemNumber"
   },
   installers: {
     columns: "name"
@@ -2031,24 +2031,24 @@ var createListGetByQueryOptions = function createListGetByQueryOptions(type, par
 };
 var itemDetailsGetByIdQueryParams = {
   contacts: {
-    columns: "name,phone_num,email,position"
+    columns: "name,phoneNum,email,position"
   },
   jobs: {
-    columns: "name,po_num,status,budget_sent_date,image_proposal_sent_date,art_plan_sent_date,receivable_status"
+    columns: "name,poNum,status,budgetSentDate,imageProposalSentDate,artPlanSentDate,receivableStatus"
   },
   notes: {
-    columns: "contents,author_name,updated_at"
+    columns: "contents,authorName,updatedAt"
   },
-  vendor_order_replacements: {
-    columns: "item_number,completed,updated_at"
+  vendorOrderReplacements: {
+    columns: "itemNumber,completed,updatedAt"
   },
   installers: {
     columns: "name"
   }
 };
 var getItemWarningByItemType = {
-  vendor_orders: function vendor_orders(item) {
-    if (item && item.does_have_replacements) {
+  vendorOrders: function vendorOrders(item) {
+    if (item && item.doesHaveReplacements) {
       return {
         message: "NEEDS REPLACEMENTS",
         color: "yellow"
@@ -2057,7 +2057,7 @@ var getItemWarningByItemType = {
   }
 };
 var onAddOrRemoveByType = {
-  vendor_order_replacements: function vendor_order_replacements(statePath, storeContext) {
+  vendorOrderReplacements: function vendorOrderReplacements(statePath, storeContext) {
     var parentType = statePath[statePath.length - 3];
     var parentId = statePath[statePath.length - 2];
 
@@ -2066,7 +2066,7 @@ var onAddOrRemoveByType = {
         route: apiRouteByItemType[parentType],
         id: parentId,
         queryParams: {
-          columns: "does_have_replacements"
+          columns: "doesHaveReplacements"
         },
         statePath: statePath.slice(0, statePath.length - 2)
       });
@@ -2087,19 +2087,19 @@ var listNameByItemType = {
   prospects: "Prospects",
   contacts: "Contacts",
   jobs: "Jobs",
-  job_orders: "Job Orders",
+  jobOrders: "Job Orders",
   installations: "Installations",
-  vendor_orders: "Vendor Orders",
+  vendorOrders: "Vendor Orders",
   vendors: "Vendors",
   notes: "Notes",
-  vendor_order_replacements: "Replacements",
+  vendorOrderReplacements: "Replacements",
   installers: "Installers"
 };
 var defaultSortFieldByItemType = {
-  job_orders: "date_ordered",
-  installations: "installation_date",
-  notes: "updated_at",
-  vendor_order_replacements: "updated_at"
+  jobOrders: "dateOrdered",
+  installations: "installationDate",
+  notes: "updatedAt",
+  vendorOrderReplacements: "updatedAt"
 };
 var getDefaultListSortFuncByItemType = function getDefaultListSortFuncByItemType(type) {
   var sortField = defaultSortFieldByItemType[type] || "name";
@@ -2146,28 +2146,28 @@ var getItemNameFuncByItemType = {
       itemNameColumnName: "name"
     };
   },
-  job_orders: function job_orders(_ref2) {
-    var date_ordered = _ref2.date_ordered;
+  jobOrders: function jobOrders(_ref2) {
+    var dateOrdered = _ref2.dateOrdered;
     return {
-      itemName: date_ordered && "Job order ordered on ".concat(Object(_util_functions__WEBPACK_IMPORTED_MODULE_4__["getDateString"])(date_ordered))
+      itemName: dateOrdered && "Job order ordered on ".concat(Object(_util_functions__WEBPACK_IMPORTED_MODULE_4__["getDateString"])(dateOrdered))
     };
   },
   installations: function installations(_ref3) {
-    var installation_date = _ref3.installation_date;
+    var installationDate = _ref3.installationDate;
     return {
-      itemName: installation_date && "Installation set for ".concat(Object(_util_functions__WEBPACK_IMPORTED_MODULE_4__["getDateString"])(installation_date))
+      itemName: installationDate && "Installation set for ".concat(Object(_util_functions__WEBPACK_IMPORTED_MODULE_4__["getDateString"])(installationDate))
     };
   },
-  vendor_orders: function vendor_orders(_ref4) {
+  vendorOrders: function vendorOrders(_ref4) {
     var vendorName = _ref4.name,
-        date_ordered = _ref4.date_ordered;
+        dateOrdered = _ref4.dateOrdered;
     var itemName;
 
     if (vendorName) {
       itemName = "".concat(vendorName, " ordered");
 
-      if (date_ordered) {
-        itemName += " on ".concat(Object(_util_functions__WEBPACK_IMPORTED_MODULE_4__["getDateString"])(date_ordered));
+      if (dateOrdered) {
+        itemName += " on ".concat(Object(_util_functions__WEBPACK_IMPORTED_MODULE_4__["getDateString"])(dateOrdered));
       }
     }
 
@@ -2193,10 +2193,10 @@ var getItemNameFuncByItemType = {
       itemName: itemName
     };
   },
-  vendor_order_replacements: function vendor_order_replacements(_ref5) {
-    var item_number = _ref5.item_number;
+  vendorOrderReplacements: function vendorOrderReplacements(_ref5) {
+    var itemNumber = _ref5.itemNumber;
     return {
-      itemName: "Item number ".concat(item_number)
+      itemName: "Item number ".concat(itemNumber)
     };
   },
   installers: function installers(item) {
@@ -2207,8 +2207,8 @@ var getItemNameFuncByItemType = {
   }
 };
 var jobStatusDisplayNameByType = {
-  in_progress: "In Progress",
-  on_hold: "On Hold",
+  inProgress: "In Progress",
+  onHold: "On Hold",
   completed: "Completed"
 };
 var itemListsByItemType = {
@@ -2229,21 +2229,21 @@ var itemListsByItemType = {
   jobs: [{
     type: "notes"
   }, {
-    type: "job_orders"
+    type: "jobOrders"
   }],
-  job_orders: [{
+  jobOrders: [{
     type: "notes"
   }, {
-    type: "vendor_orders"
+    type: "vendorOrders"
   }, {
     type: "installations"
   }],
-  vendor_orders: [{
+  vendorOrders: [{
     type: "notes"
   }, {
-    type: "vendor_order_replacements"
+    type: "vendorOrderReplacements"
   }],
-  vendor_order_replacements: [{
+  vendorOrderReplacements: [{
     type: "notes"
   }],
   installations: [{
@@ -2273,7 +2273,7 @@ var itemDetailFieldsByItemType = {
     columnName: "name",
     type: "text"
   }, {
-    columnName: "phone_num",
+    columnName: "phoneNum",
     displayName: "Phone Number",
     type: "text"
   }, {
@@ -2284,7 +2284,7 @@ var itemDetailFieldsByItemType = {
     type: "text"
   }],
   jobs: [{
-    columnName: "po_num",
+    columnName: "poNum",
     displayName: "PO #",
     type: "text"
   }, {
@@ -2294,17 +2294,17 @@ var itemDetailFieldsByItemType = {
       return jobStatusDisplayNameByType[value];
     },
     valueOptions: [{
-      value: "in_progress",
-      displayName: jobStatusDisplayNameByType.in_progress
+      value: "inProgress",
+      displayName: jobStatusDisplayNameByType.inProgress
     }, {
-      value: "on_hold",
-      displayName: jobStatusDisplayNameByType.on_hold
+      value: "onHold",
+      displayName: jobStatusDisplayNameByType.onHold
     }, {
       value: "completed",
       displayName: jobStatusDisplayNameByType.completed
     }]
   }, {
-    columnName: "receivable_status",
+    columnName: "receivableStatus",
     displayName: "Receivable Status",
     type: "dropdown",
     valueOptions: [{
@@ -2318,44 +2318,44 @@ var itemDetailFieldsByItemType = {
       value: "100% paid"
     }]
   }, {
-    columnName: "budget_sent_date",
+    columnName: "budgetSentDate",
     displayName: "Budget Sent Date",
     type: "date"
   }, {
-    columnName: "image_proposal_sent_date",
+    columnName: "imageProposalSentDate",
     displayName: "Image Proposal Sent Date",
     type: "date"
   }, {
-    columnName: "art_plan_sent_date",
+    columnName: "artPlanSentDate",
     displayName: "Art Plan Sent Date",
     type: "date"
   }],
-  job_orders: [{
-    columnName: "date_ordered",
+  jobOrders: [{
+    columnName: "dateOrdered",
     displayName: "Date Ordered",
     type: "date"
   }],
   installations: [{
-    columnName: "installation_date",
+    columnName: "installationDate",
     displayName: "Install Date",
     type: "date"
   }, {
     columnName: "completed",
     type: "checkbox"
   }],
-  vendor_orders: [{
-    columnName: "po_num",
+  vendorOrders: [{
+    columnName: "poNum",
     displayName: "Invoice / PO #",
     type: "text"
   }, {
-    columnName: "tracking_num",
+    columnName: "trackingNum",
     displayName: "Tracking #",
     type: "text"
   }, {
-    columnName: "date_ordered",
+    columnName: "dateOrdered",
     type: "date"
   }, {
-    columnName: "number_of_pieces",
+    columnName: "numberOfPieces",
     displayName: "Number of Pieces",
     type: "text"
   }, {
@@ -2363,12 +2363,12 @@ var itemDetailFieldsByItemType = {
     type: "checkbox"
   }],
   notes: [{
-    columnName: "author_name",
+    columnName: "authorName",
     displayName: "Author",
     type: "text",
     isReadOnly: true
   }, {
-    columnName: "updated_at",
+    columnName: "updatedAt",
     displayName: "Last Updated",
     type: "date",
     isReadOnly: true
@@ -2376,8 +2376,8 @@ var itemDetailFieldsByItemType = {
     columnName: "contents",
     type: "text-box"
   }],
-  vendor_order_replacements: [{
-    columnName: "item_number",
+  vendorOrderReplacements: [{
+    columnName: "itemNumber",
     displayName: "Item Number"
   }, {
     columnName: "completed",
@@ -2391,12 +2391,12 @@ var itemNameByItemType = {
   prospects: "Company",
   contact: "Contact",
   jobs: "Job",
-  job_orders: "Job Order",
+  jobOrders: "Job Order",
   installations: "Installation",
-  vendor_orders: "Vendor Order",
+  vendorOrders: "Vendor Order",
   vendors: "Vendor",
   notes: "Note",
-  vendor_order_replacements: "Replacement",
+  vendorOrderReplacements: "Replacement",
   installers: "Installer"
 };
 var newItemFormFieldsByItemType = {
@@ -2442,7 +2442,7 @@ var newItemFormFieldsByItemType = {
   contacts: [{
     columnName: "name"
   }, {
-    columnName: "phone_num",
+    columnName: "phoneNum",
     displayName: "Phone Number"
   }, {
     columnName: "email"
@@ -2452,10 +2452,10 @@ var newItemFormFieldsByItemType = {
   jobs: [{
     columnName: "name"
   }, {
-    columnName: "po_num",
+    columnName: "poNum",
     displayName: "PO #"
   }, {
-    columnName: "receivable_status",
+    columnName: "receivableStatus",
     type: "dropdown",
     valueOptions: [{
       value: "PO sent"
@@ -2465,38 +2465,38 @@ var newItemFormFieldsByItemType = {
       value: "100% paid"
     }]
   }],
-  job_orders: [{
-    columnName: "date_ordered",
+  jobOrders: [{
+    columnName: "dateOrdered",
     displayName: "Date Ordered",
     type: "date"
   }, {
     columnName: "notes"
   }],
   installations: [{
-    columnName: "installation_date",
+    columnName: "installationDate",
     displayName: "Install Date",
     type: "date"
   }, {
     columnName: "completed",
     type: "checkbox"
   }],
-  vendor_orders: [{
-    columnName: "vendor_id",
+  vendorOrders: [{
+    columnName: "vendorId",
     displayName: "Vendor Name",
     type: "dropdown-with-query",
     dropdownItemType: "vendors"
   }, {
-    columnName: "po_num",
+    columnName: "poNum",
     displayName: "Invoice/ PO #"
   }, {
-    columnName: "tracking_num",
+    columnName: "trackingNum",
     displayName: "Tracking #"
   }, {
-    columnName: "date_ordered",
+    columnName: "dateOrdered",
     displayName: "Date Ordered",
     type: "date"
   }, {
-    columnName: "number_of_pieces",
+    columnName: "numberOfPieces",
     displayName: "Number of Pieces"
   }, {
     columnName: "completed",
@@ -2512,8 +2512,8 @@ var newItemFormFieldsByItemType = {
   notes: [{
     columnName: "contents"
   }],
-  vendor_order_replacements: [{
-    columnName: "item_number",
+  vendorOrderReplacements: [{
+    columnName: "itemNumber",
     displayName: "Item Number"
   }, {
     columnName: "completed",
@@ -2542,7 +2542,7 @@ var getNewItemRecordBase = function getNewItemRecordBase(_ref6) {
   }
 
   if (type === "notes" && parentId && parentType) {
-    baseRecord.parent_table = tableNameListType[parentType];
+    baseRecord.parentTable = tableNameListType[parentType];
   }
 
   if (type === "vendors") {
@@ -2550,7 +2550,7 @@ var getNewItemRecordBase = function getNewItemRecordBase(_ref6) {
   }
 
   if (type === "jobs") {
-    baseRecord.status = "in_progress";
+    baseRecord.status = "inProgress";
   }
 
   return baseRecord;
@@ -2674,7 +2674,7 @@ var StoreProvider = function StoreProvider(_ref2) {
     vendors: {},
     clients: {},
     jobs: {},
-    job_orders: {},
+    jobOrders: {},
     installations: {},
     authentication: {
       isAuthenticated: null
