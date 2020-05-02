@@ -1990,8 +1990,9 @@ var queryParamsByItemType = {
     attributes: "installationDate"
   },
   vendorOrders: {
-    attributes: "name,dateOrdered,doesHaveReplacements"
+    attributes: "vendor_name,dateOrdered"
   },
+  //,doesHaveReplacements
   vendors: {
     attributes: "name",
     status: "vendor"
@@ -2143,12 +2144,12 @@ var getItemNameFuncByItemType = {
     };
   },
   vendorOrders: function vendorOrders(_ref4) {
-    var vendorName = _ref4.name,
+    var vendor_name = _ref4.vendor_name,
         dateOrdered = _ref4.dateOrdered;
     var itemName;
 
-    if (vendorName) {
-      itemName = "".concat(vendorName, " ordered");
+    if (vendor_name) {
+      itemName = "".concat(vendor_name, " ordered");
 
       if (dateOrdered) {
         itemName += " on ".concat(Object(_utils__WEBPACK_IMPORTED_MODULE_0__["getDateString"])(dateOrdered));

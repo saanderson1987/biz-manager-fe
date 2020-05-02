@@ -67,7 +67,7 @@ export const queryParamsByItemType = {
   jobs: { attributes: "name" },
   jobOrders: { attributes: "dateOrdered" },
   installations: { attributes: "installationDate" },
-  vendorOrders: { attributes: "name,dateOrdered,doesHaveReplacements" },
+  vendorOrders: { attributes: "vendor_name,dateOrdered" }, //,doesHaveReplacements
   vendors: { attributes: "name", status: "vendor" },
   notes: { attributes: "contents,updatedAt" },
   vendorOrderReplacements: { attributes: "itemNumber" },
@@ -180,10 +180,10 @@ export const getItemNameFuncByItemType = {
       installationDate &&
       `Installation set for ${getDateString(installationDate)}`,
   }),
-  vendorOrders: ({ name: vendorName, dateOrdered }) => {
+  vendorOrders: ({ vendor_name, dateOrdered }) => {
     let itemName;
-    if (vendorName) {
-      itemName = `${vendorName} ordered`;
+    if (vendor_name) {
+      itemName = `${vendor_name} ordered`;
       if (dateOrdered) {
         itemName += ` on ${getDateString(dateOrdered)}`;
       }
