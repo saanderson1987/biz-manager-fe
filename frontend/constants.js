@@ -67,7 +67,7 @@ export const queryParamsByItemType = {
   jobs: { attributes: "name" },
   jobOrders: { attributes: "dateOrdered" },
   installations: { attributes: "installationDate" },
-  vendorOrders: { attributes: "vendor_name,dateOrdered" }, //,doesHaveReplacements
+  vendorOrders: { attributes: "vendor_name,dateOrdered,doesHaveReplacements" },
   vendors: { attributes: "name", status: "vendor" },
   notes: { attributes: "contents,updatedAt" },
   vendorOrderReplacements: { attributes: "itemNumber" },
