@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Loader from "./shared/Loader";
 import Input from "./shared/Input";
 import DisplayValue from "./shared/DisplayValue";
-import EditAndSaveButtonRow from "./shared/buttons/EditAndSaveButtonRow";
+import EditAndSaveButtonRow from "./shared/button/EditAndSaveButtonRow";
 
 const formatDetailValueState = (value, type) => {
   if (type === "date") {

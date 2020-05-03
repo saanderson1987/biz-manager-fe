@@ -4,8 +4,8 @@ import ExpansionCaret from "./shared/ExpansionCaret";
 import Loader from "./shared/Loader";
 import Input from "./shared/Input";
 import DisplayValue from "./shared/DisplayValue";
-import EditAndSaveButtonRow from "./shared/buttons/EditAndSaveButtonRow";
-import DeleteButton from "./shared/buttons/DeleteButton";
+import EditAndSaveButtonRow from "./shared/button/EditAndSaveButtonRow";
+import DeleteButton from "./shared/button/DeleteButton";
 import "./ListItemHeader.scss";
 
 const ListItemHeader = ({

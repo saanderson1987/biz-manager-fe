@@ -271,7 +271,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared/Loader */ "./frontend/components/shared/Loader.jsx");
 /* harmony import */ var _shared_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared/Input */ "./frontend/components/shared/Input.jsx");
 /* harmony import */ var _shared_DisplayValue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./shared/DisplayValue */ "./frontend/components/shared/DisplayValue.jsx");
-/* harmony import */ var _shared_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/buttons/EditAndSaveButtonRow */ "./frontend/components/shared/buttons/EditAndSaveButtonRow.jsx");
+/* harmony import */ var _shared_button_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/button/EditAndSaveButtonRow */ "./frontend/components/shared/button/EditAndSaveButtonRow.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -369,7 +369,7 @@ var ItemDetail = function ItemDetail(_ref) {
     type: type
   })), !isReadOnly && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     className: "item-detail-edit-and-save"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_button_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_5__["default"], {
     save: save,
     inEditMode: inEditMode,
     toggleEditMode: function toggleEditMode() {
@@ -707,8 +707,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared/Loader */ "./frontend/components/shared/Loader.jsx");
 /* harmony import */ var _shared_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./shared/Input */ "./frontend/components/shared/Input.jsx");
 /* harmony import */ var _shared_DisplayValue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/DisplayValue */ "./frontend/components/shared/DisplayValue.jsx");
-/* harmony import */ var _shared_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shared/buttons/EditAndSaveButtonRow */ "./frontend/components/shared/buttons/EditAndSaveButtonRow.jsx");
-/* harmony import */ var _shared_buttons_DeleteButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shared/buttons/DeleteButton */ "./frontend/components/shared/buttons/DeleteButton.jsx");
+/* harmony import */ var _shared_button_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shared/button/EditAndSaveButtonRow */ "./frontend/components/shared/button/EditAndSaveButtonRow.jsx");
+/* harmony import */ var _shared_button_DeleteButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shared/button/DeleteButton */ "./frontend/components/shared/button/DeleteButton.jsx");
 /* harmony import */ var _ListItemHeader_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ListItemHeader.scss */ "./frontend/components/ListItemHeader.scss");
 /* harmony import */ var _ListItemHeader_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_ListItemHeader_scss__WEBPACK_IMPORTED_MODULE_8__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -811,13 +811,13 @@ var ListItemHeader = function ListItemHeader(_ref) {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("list-item-warning", "expandable-on-click")
   }, warning.message))), isExpanded && isEditable && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "EditAndSaveButtonRow-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_button_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_6__["default"], {
     save: save,
     inEditMode: inEditMode,
     toggleEditMode: function toggleEditMode() {
       return setInEditMode(!inEditMode);
     }
-  }))), isExpanded && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_buttons_DeleteButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }))), isExpanded && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_button_DeleteButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
     onClick: onClickDelete
   }));
 };
@@ -1740,10 +1740,10 @@ var Loader = function Loader(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/shared/buttons/CancelButton.jsx":
-/*!*************************************************************!*\
-  !*** ./frontend/components/shared/buttons/CancelButton.jsx ***!
-  \*************************************************************/
+/***/ "./frontend/components/shared/button/CancelButton.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/shared/button/CancelButton.jsx ***!
+  \************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1765,10 +1765,10 @@ var CancelButton = function CancelButton(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/shared/buttons/DeleteButton.jsx":
-/*!*************************************************************!*\
-  !*** ./frontend/components/shared/buttons/DeleteButton.jsx ***!
-  \*************************************************************/
+/***/ "./frontend/components/shared/button/DeleteButton.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/shared/button/DeleteButton.jsx ***!
+  \************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1790,10 +1790,10 @@ var DeleteButton = function DeleteButton(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/shared/buttons/EditAndSaveButtonRow.jsx":
-/*!*********************************************************************!*\
-  !*** ./frontend/components/shared/buttons/EditAndSaveButtonRow.jsx ***!
-  \*********************************************************************/
+/***/ "./frontend/components/shared/button/EditAndSaveButtonRow.jsx":
+/*!********************************************************************!*\
+  !*** ./frontend/components/shared/button/EditAndSaveButtonRow.jsx ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1801,9 +1801,9 @@ var DeleteButton = function DeleteButton(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SaveButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SaveButton */ "./frontend/components/shared/buttons/SaveButton.jsx");
-/* harmony import */ var _CancelButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CancelButton */ "./frontend/components/shared/buttons/CancelButton.jsx");
-/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditButton */ "./frontend/components/shared/buttons/EditButton.jsx");
+/* harmony import */ var _SaveButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SaveButton */ "./frontend/components/shared/button/SaveButton.jsx");
+/* harmony import */ var _CancelButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CancelButton */ "./frontend/components/shared/button/CancelButton.jsx");
+/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditButton */ "./frontend/components/shared/button/EditButton.jsx");
 
 
 
@@ -1828,10 +1828,10 @@ var EditAndSaveButtonRow = function EditAndSaveButtonRow(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/shared/buttons/EditButton.jsx":
-/*!***********************************************************!*\
-  !*** ./frontend/components/shared/buttons/EditButton.jsx ***!
-  \***********************************************************/
+/***/ "./frontend/components/shared/button/EditButton.jsx":
+/*!**********************************************************!*\
+  !*** ./frontend/components/shared/button/EditButton.jsx ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1855,10 +1855,10 @@ var EditButton = function EditButton(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/shared/buttons/SaveButton.jsx":
-/*!***********************************************************!*\
-  !*** ./frontend/components/shared/buttons/SaveButton.jsx ***!
-  \***********************************************************/
+/***/ "./frontend/components/shared/button/SaveButton.jsx":
+/*!**********************************************************!*\
+  !*** ./frontend/components/shared/button/SaveButton.jsx ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
