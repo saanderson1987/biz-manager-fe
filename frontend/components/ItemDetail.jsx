@@ -1,9 +1,9 @@
 import React, { useState, useEffect, createRef } from "react";
 import classNames from "classnames";
-import Loader from "./common/Loader";
-import Input from "./common/Input";
-import DisplayValue from "./common/DisplayValue";
-import EditAndSaveButtonRow from "./common/buttons/EditAndSaveButtonRow";
+import Loader from "./shared/Loader";
+import Input from "./shared/Input";
+import DisplayValue from "./shared/DisplayValue";
+import EditAndSaveButtonRow from "./shared/buttons/EditAndSaveButtonRow";
 
 const formatDetailValueState = (value, type) => {
   if (type === "date") {

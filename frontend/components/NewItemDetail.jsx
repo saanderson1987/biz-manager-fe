@@ -1,6 +1,6 @@
 import React from "react";
-import DropdownWithQuery from "./common/DropdownWithQuery";
-import Input from "./common/Input";
+import DropdownWithQuery from "./shared/DropdownWithQuery";
+import Input from "./shared/Input";
 
 const NewItemDetail = ({
   detailValue,

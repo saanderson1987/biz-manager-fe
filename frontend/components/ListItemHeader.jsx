@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
-import ExpansionCaret from "./common/ExpansionCaret";
-import Loader from "./common/Loader";
-import Input from "./common/Input";
-import DisplayValue from "./common/DisplayValue";
-import EditAndSaveButtonRow from "./common/buttons/EditAndSaveButtonRow";
-import DeleteButton from "./common/buttons/DeleteButton";
+import ExpansionCaret from "./shared/ExpansionCaret";
+import Loader from "./shared/Loader";
+import Input from "./shared/Input";
+import DisplayValue from "./shared/DisplayValue";
+import EditAndSaveButtonRow from "./shared/buttons/EditAndSaveButtonRow";
+import DeleteButton from "./shared/buttons/DeleteButton";
 import "./ListItemHeader.scss";
 
 const ListItemHeader = ({

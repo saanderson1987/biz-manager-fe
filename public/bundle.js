@@ -268,10 +268,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _common_Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./common/Loader */ "./frontend/components/common/Loader.jsx");
-/* harmony import */ var _common_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./common/Input */ "./frontend/components/common/Input.jsx");
-/* harmony import */ var _common_DisplayValue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./common/DisplayValue */ "./frontend/components/common/DisplayValue.jsx");
-/* harmony import */ var _common_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./common/buttons/EditAndSaveButtonRow */ "./frontend/components/common/buttons/EditAndSaveButtonRow.jsx");
+/* harmony import */ var _shared_Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared/Loader */ "./frontend/components/shared/Loader.jsx");
+/* harmony import */ var _shared_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared/Input */ "./frontend/components/shared/Input.jsx");
+/* harmony import */ var _shared_DisplayValue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./shared/DisplayValue */ "./frontend/components/shared/DisplayValue.jsx");
+/* harmony import */ var _shared_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/buttons/EditAndSaveButtonRow */ "./frontend/components/shared/buttons/EditAndSaveButtonRow.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -352,9 +352,9 @@ var ItemDetail = function ItemDetail(_ref) {
     className: "item-detail-name"
   }, displayName ? displayName : columnName.charAt(0).toUpperCase() + columnName.slice(1), ":"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     className: "item-detail-value"
-  }, isValueUpdating ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_Loader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, isValueUpdating ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Loader__WEBPACK_IMPORTED_MODULE_2__["default"], {
     isInline: true
-  }) : inEditMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }) : inEditMode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: editedValue,
     type: type,
     onChange: setEditedValue,
@@ -364,12 +364,12 @@ var ItemDetail = function ItemDetail(_ref) {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()({
       "text-align-right": type !== "text-box"
     })
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_DisplayValue__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_DisplayValue__WEBPACK_IMPORTED_MODULE_4__["default"], {
     value: getDisplayValue ? getDisplayValue(value) : value,
     type: type
   })), !isReadOnly && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     className: "item-detail-edit-and-save"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_5__["default"], {
     save: save,
     inEditMode: inEditMode,
     toggleEditMode: function toggleEditMode() {
@@ -703,12 +703,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _common_ExpansionCaret__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./common/ExpansionCaret */ "./frontend/components/common/ExpansionCaret.jsx");
-/* harmony import */ var _common_Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./common/Loader */ "./frontend/components/common/Loader.jsx");
-/* harmony import */ var _common_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./common/Input */ "./frontend/components/common/Input.jsx");
-/* harmony import */ var _common_DisplayValue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./common/DisplayValue */ "./frontend/components/common/DisplayValue.jsx");
-/* harmony import */ var _common_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./common/buttons/EditAndSaveButtonRow */ "./frontend/components/common/buttons/EditAndSaveButtonRow.jsx");
-/* harmony import */ var _common_buttons_DeleteButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./common/buttons/DeleteButton */ "./frontend/components/common/buttons/DeleteButton.jsx");
+/* harmony import */ var _shared_ExpansionCaret__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared/ExpansionCaret */ "./frontend/components/shared/ExpansionCaret.jsx");
+/* harmony import */ var _shared_Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared/Loader */ "./frontend/components/shared/Loader.jsx");
+/* harmony import */ var _shared_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./shared/Input */ "./frontend/components/shared/Input.jsx");
+/* harmony import */ var _shared_DisplayValue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/DisplayValue */ "./frontend/components/shared/DisplayValue.jsx");
+/* harmony import */ var _shared_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shared/buttons/EditAndSaveButtonRow */ "./frontend/components/shared/buttons/EditAndSaveButtonRow.jsx");
+/* harmony import */ var _shared_buttons_DeleteButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shared/buttons/DeleteButton */ "./frontend/components/shared/buttons/DeleteButton.jsx");
 /* harmony import */ var _ListItemHeader_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ListItemHeader.scss */ "./frontend/components/ListItemHeader.scss");
 /* harmony import */ var _ListItemHeader_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_ListItemHeader_scss__WEBPACK_IMPORTED_MODULE_8__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -789,14 +789,14 @@ var ListItemHeader = function ListItemHeader(_ref) {
       width: "100%"
     },
     className: "expandable-on-click"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_ExpansionCaret__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_ExpansionCaret__WEBPACK_IMPORTED_MODULE_2__["default"], {
     isExpanded: isExpanded,
     className: "expandable-on-click"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("list-item-name", _defineProperty({}, "list-item-has-warning--".concat(warning && warning.color), warning))
-  }, isValueUpdating ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, isValueUpdating ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     isInline: true
-  }) : inEditMode && isEditable ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_Input__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }) : inEditMode && isEditable ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Input__WEBPACK_IMPORTED_MODULE_4__["default"], {
     value: editedItemName,
     onChange: setEditedItemName,
     save: save
@@ -804,20 +804,20 @@ var ListItemHeader = function ListItemHeader(_ref) {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()({
       bold: isExpanded
     })
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_DisplayValue__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_DisplayValue__WEBPACK_IMPORTED_MODULE_5__["default"], {
     value: itemName,
     className: "expandable-on-click"
   }), warning && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("list-item-warning", "expandable-on-click")
   }, warning.message))), isExpanded && isEditable && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "EditAndSaveButtonRow-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_buttons_EditAndSaveButtonRow__WEBPACK_IMPORTED_MODULE_6__["default"], {
     save: save,
     inEditMode: inEditMode,
     toggleEditMode: function toggleEditMode() {
       return setInEditMode(!inEditMode);
     }
-  }))), isExpanded && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_buttons_DeleteButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }))), isExpanded && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_buttons_DeleteButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
     onClick: onClickDelete
   }));
 };
@@ -1079,8 +1079,8 @@ var NavBar = function NavBar() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _common_DropdownWithQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/DropdownWithQuery */ "./frontend/components/common/DropdownWithQuery.jsx");
-/* harmony import */ var _common_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./common/Input */ "./frontend/components/common/Input.jsx");
+/* harmony import */ var _shared_DropdownWithQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./shared/DropdownWithQuery */ "./frontend/components/shared/DropdownWithQuery.jsx");
+/* harmony import */ var _shared_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared/Input */ "./frontend/components/shared/Input.jsx");
 
 
 
@@ -1098,11 +1098,11 @@ var NewItemDetail = function NewItemDetail(_ref) {
     className: "item-detail-name"
   }, displayName ? displayName + ":" : columnName.charAt(0).toUpperCase() + columnName.slice(1) + ":"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     className: "item-detail-value"
-  }, type === "dropdown-with-query" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_DropdownWithQuery__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, type === "dropdown-with-query" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_DropdownWithQuery__WEBPACK_IMPORTED_MODULE_1__["default"], {
     value: detailValue,
     type: dropdownItemType,
     onChange: onValueChange
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
     value: detailValue,
     type: type,
     onChange: onValueChange,
@@ -1377,198 +1377,6 @@ var Tab = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(fu
 
 /***/ }),
 
-/***/ "./frontend/components/common/DisplayValue.jsx":
-/*!*****************************************************!*\
-  !*** ./frontend/components/common/DisplayValue.jsx ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils */ "./utils/index.js");
-
-
-
-var DisplayValue = function DisplayValue(_ref) {
-  var value = _ref.value,
-      type = _ref.type,
-      className = _ref.className;
-  var displayValue = value;
-
-  if (type === "checkbox") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      type: "checkbox",
-      checked: !!value,
-      disabled: true,
-      className: className
-    });
-  }
-
-  if (type === "date") {
-    displayValue = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getDateString"])(value);
-  }
-
-  if (type === "radio") {
-    displayValue = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["capitalize"])(value);
-  }
-
-  if (type === "text-box") {
-    return (value || "").split("\n").map(function (line, i) {
-      return line ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        key: i
-      }, line) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
-        key: i
-      });
-    });
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: className
-  }, displayValue);
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (DisplayValue);
-
-/***/ }),
-
-/***/ "./frontend/components/common/DropdownWithQuery.jsx":
-/*!**********************************************************!*\
-  !*** ./frontend/components/common/DropdownWithQuery.jsx ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants */ "./frontend/constants.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store */ "./frontend/store.jsx");
-/* harmony import */ var _Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Input */ "./frontend/components/common/Input.jsx");
-/* harmony import */ var _NewItemModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../NewItemModal */ "./frontend/components/NewItemModal.jsx");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-var DropdownWithQuery = function DropdownWithQuery(_ref) {
-  var value = _ref.value,
-      type = _ref.type,
-      onChange = _ref.onChange;
-
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_store__WEBPACK_IMPORTED_MODULE_2__["StoreContext"]),
-      state = _useContext.state,
-      getByQuery = _useContext.getByQuery;
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isNewItemModalVisible = _useState2[0],
-      setIsNewItemModalVisible = _useState2[1];
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    getByQuery({
-      route: _constants__WEBPACK_IMPORTED_MODULE_1__["apiRouteByItemType"][type],
-      queryParams: _objectSpread({}, _constants__WEBPACK_IMPORTED_MODULE_1__["queryParamsByItemType"][type]),
-      statePath: [type]
-    });
-  }, []);
-  var items = Object.values(state[type]);
-  var itemTypeName = _constants__WEBPACK_IMPORTED_MODULE_1__["itemNameByItemType"][type];
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    value: value,
-    type: "dropdown",
-    onChange: onChange,
-    valueOptions: [{
-      value: "",
-      displayName: " -- select a ".concat(itemTypeName, " -- "),
-      isDisabled: true
-    }].concat(_toConsumableArray(items.map(function (item) {
-      return {
-        value: item.id,
-        displayName: _constants__WEBPACK_IMPORTED_MODULE_1__["getItemNameFuncByItemType"][type](item).itemName
-      };
-    })))
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "button--new",
-    onClick: function onClick() {
-      return setIsNewItemModalVisible(true);
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-plus-circle"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Create new ", itemTypeName))), isNewItemModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewItemModal__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    type: type,
-    closeModal: function closeModal() {
-      return setIsNewItemModalVisible(false);
-    },
-    statePath: [type]
-  }));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (DropdownWithQuery);
-
-/***/ }),
-
-/***/ "./frontend/components/common/ExpansionCaret.jsx":
-/*!*******************************************************!*\
-  !*** ./frontend/components/common/ExpansionCaret.jsx ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var ExpansionCaret = function ExpansionCaret(_ref) {
-  var isExpanded = _ref.isExpanded,
-      onClick = _ref.onClick,
-      _ref$className = _ref.className,
-      className = _ref$className === void 0 ? "" : _ref$className;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    onClick: onClick
-  }, isExpanded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "".concat(className, " fas fa-caret-down")
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "".concat(className, " fas fa-caret-right")
-  }));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (ExpansionCaret);
-
-/***/ }),
-
 /***/ "./frontend/components/common/Input.jsx":
 /*!**********************************************!*\
   !*** ./frontend/components/common/Input.jsx ***!
@@ -1711,9 +1519,343 @@ var Input = function Input(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/common/Loader.jsx":
+/***/ "./frontend/components/shared/DisplayValue.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/shared/DisplayValue.jsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils */ "./utils/index.js");
+
+
+
+var DisplayValue = function DisplayValue(_ref) {
+  var value = _ref.value,
+      type = _ref.type,
+      className = _ref.className;
+  var displayValue = value;
+
+  if (type === "checkbox") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "checkbox",
+      checked: !!value,
+      disabled: true,
+      className: className
+    });
+  }
+
+  if (type === "date") {
+    displayValue = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getDateString"])(value);
+  }
+
+  if (type === "radio") {
+    displayValue = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["capitalize"])(value);
+  }
+
+  if (type === "text-box") {
+    return (value || "").split("\n").map(function (line, i) {
+      return line ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        key: i
+      }, line) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+        key: i
+      });
+    });
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: className
+  }, displayValue);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DisplayValue);
+
+/***/ }),
+
+/***/ "./frontend/components/shared/DropdownWithQuery.jsx":
+/*!**********************************************************!*\
+  !*** ./frontend/components/shared/DropdownWithQuery.jsx ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants */ "./frontend/constants.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store */ "./frontend/store.jsx");
+/* harmony import */ var _Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Input */ "./frontend/components/shared/Input.jsx");
+/* harmony import */ var _NewItemModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../NewItemModal */ "./frontend/components/NewItemModal.jsx");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+var DropdownWithQuery = function DropdownWithQuery(_ref) {
+  var value = _ref.value,
+      type = _ref.type,
+      onChange = _ref.onChange;
+
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_store__WEBPACK_IMPORTED_MODULE_2__["StoreContext"]),
+      state = _useContext.state,
+      getByQuery = _useContext.getByQuery;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      isNewItemModalVisible = _useState2[0],
+      setIsNewItemModalVisible = _useState2[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    getByQuery({
+      route: _constants__WEBPACK_IMPORTED_MODULE_1__["apiRouteByItemType"][type],
+      queryParams: _objectSpread({}, _constants__WEBPACK_IMPORTED_MODULE_1__["queryParamsByItemType"][type]),
+      statePath: [type]
+    });
+  }, []);
+  var items = Object.values(state[type]);
+  var itemTypeName = _constants__WEBPACK_IMPORTED_MODULE_1__["itemNameByItemType"][type];
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: value,
+    type: "dropdown",
+    onChange: onChange,
+    valueOptions: [{
+      value: "",
+      displayName: " -- select a ".concat(itemTypeName, " -- "),
+      isDisabled: true
+    }].concat(_toConsumableArray(items.map(function (item) {
+      return {
+        value: item.id,
+        displayName: _constants__WEBPACK_IMPORTED_MODULE_1__["getItemNameFuncByItemType"][type](item).itemName
+      };
+    })))
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "button--new",
+    onClick: function onClick() {
+      return setIsNewItemModalVisible(true);
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-plus-circle"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Create new ", itemTypeName))), isNewItemModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewItemModal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    type: type,
+    closeModal: function closeModal() {
+      return setIsNewItemModalVisible(false);
+    },
+    statePath: [type]
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DropdownWithQuery);
+
+/***/ }),
+
+/***/ "./frontend/components/shared/ExpansionCaret.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/shared/ExpansionCaret.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var ExpansionCaret = function ExpansionCaret(_ref) {
+  var isExpanded = _ref.isExpanded,
+      onClick = _ref.onClick,
+      _ref$className = _ref.className,
+      className = _ref$className === void 0 ? "" : _ref$className;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    onClick: onClick
+  }, isExpanded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "".concat(className, " fas fa-caret-down")
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "".concat(className, " fas fa-caret-right")
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ExpansionCaret);
+
+/***/ }),
+
+/***/ "./frontend/components/shared/Input.jsx":
+/*!**********************************************!*\
+  !*** ./frontend/components/shared/Input.jsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
+/* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils */ "./utils/index.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+
+ // if props.save is defined and props.type is text, then `save` will be called if user presses enter in the text input.
+
+var Input = function Input(_ref) {
+  var type = _ref.type,
+      value = _ref.value,
+      _onChange = _ref.onChange,
+      valueOptions = _ref.valueOptions,
+      save = _ref.save,
+      inputRef = _ref.inputRef,
+      className = _ref.className;
+  var commonInputProps = {
+    onKeyUp: function onKeyUp(_ref2) {
+      var keyCode = _ref2.keyCode;
+
+      if (save && keyCode === 13
+      /* 13 is enter key */
+      ) {
+          save();
+        }
+    },
+    ref: inputRef,
+    className: className
+  };
+
+  if (type === "date") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      selected: value,
+      onChange: function onChange(date) {
+        return _onChange(date);
+      }
+    });
+  }
+
+  if (type === "checkbox") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
+      type: "checkbox",
+      checked: value,
+      onChange: function onChange(_ref3) {
+        var checked = _ref3.target.checked;
+        return _onChange(checked);
+      }
+    }, commonInputProps));
+  }
+
+  if (type === "radio") {
+    return valueOptions.map(function (option) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "radio-buttons-row",
+        key: option.value
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
+        type: "radio",
+        value: option.value,
+        checked: value === option.value,
+        onChange: function onChange() {
+          return _onChange(option.value);
+        },
+        id: option.value
+      }, commonInputProps)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "radio-button-display-name"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: option.value
+      }, option.displayName || Object(_utils__WEBPACK_IMPORTED_MODULE_4__["capitalize"])(option.value))));
+    });
+  }
+
+  if (type === "dropdown") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
+      value: value || "",
+      onChange: function onChange(_ref4) {
+        var value = _ref4.target.value;
+        return _onChange(value);
+      }
+    }, commonInputProps), valueOptions.map(function (option) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: option.value,
+        disabled: option.isDisabled,
+        key: option.value
+      }, option.displayName || option.value);
+    }));
+  }
+
+  if (type === "text-box") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      value: value,
+      onChange: function onChange(_ref5) {
+        var value = _ref5.target.value;
+        return _onChange(value);
+      },
+      ref: inputRef,
+      className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(className, "text-box")
+    });
+  }
+
+  if (type === "password") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
+      type: "password",
+      value: value,
+      onChange: function onChange(_ref6) {
+        var value = _ref6.target.value;
+        return _onChange(value);
+      }
+    }, commonInputProps));
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
+    type: "text",
+    value: value,
+    onChange: function onChange(_ref7) {
+      var value = _ref7.target.value;
+      return _onChange(value);
+    }
+  }, commonInputProps));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Input);
+
+/***/ }),
+
+/***/ "./frontend/components/shared/Loader.jsx":
 /*!***********************************************!*\
-  !*** ./frontend/components/common/Loader.jsx ***!
+  !*** ./frontend/components/shared/Loader.jsx ***!
   \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1740,9 +1882,9 @@ var Loader = function Loader(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/common/buttons/CancelButton.jsx":
+/***/ "./frontend/components/shared/buttons/CancelButton.jsx":
 /*!*************************************************************!*\
-  !*** ./frontend/components/common/buttons/CancelButton.jsx ***!
+  !*** ./frontend/components/shared/buttons/CancelButton.jsx ***!
   \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1765,9 +1907,9 @@ var CancelButton = function CancelButton(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/common/buttons/DeleteButton.jsx":
+/***/ "./frontend/components/shared/buttons/DeleteButton.jsx":
 /*!*************************************************************!*\
-  !*** ./frontend/components/common/buttons/DeleteButton.jsx ***!
+  !*** ./frontend/components/shared/buttons/DeleteButton.jsx ***!
   \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1790,9 +1932,9 @@ var DeleteButton = function DeleteButton(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/common/buttons/EditAndSaveButtonRow.jsx":
+/***/ "./frontend/components/shared/buttons/EditAndSaveButtonRow.jsx":
 /*!*********************************************************************!*\
-  !*** ./frontend/components/common/buttons/EditAndSaveButtonRow.jsx ***!
+  !*** ./frontend/components/shared/buttons/EditAndSaveButtonRow.jsx ***!
   \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1801,9 +1943,9 @@ var DeleteButton = function DeleteButton(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SaveButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SaveButton */ "./frontend/components/common/buttons/SaveButton.jsx");
-/* harmony import */ var _CancelButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CancelButton */ "./frontend/components/common/buttons/CancelButton.jsx");
-/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditButton */ "./frontend/components/common/buttons/EditButton.jsx");
+/* harmony import */ var _SaveButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SaveButton */ "./frontend/components/shared/buttons/SaveButton.jsx");
+/* harmony import */ var _CancelButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CancelButton */ "./frontend/components/shared/buttons/CancelButton.jsx");
+/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditButton */ "./frontend/components/shared/buttons/EditButton.jsx");
 
 
 
@@ -1828,9 +1970,9 @@ var EditAndSaveButtonRow = function EditAndSaveButtonRow(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/common/buttons/EditButton.jsx":
+/***/ "./frontend/components/shared/buttons/EditButton.jsx":
 /*!***********************************************************!*\
-  !*** ./frontend/components/common/buttons/EditButton.jsx ***!
+  !*** ./frontend/components/shared/buttons/EditButton.jsx ***!
   \***********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1855,9 +1997,9 @@ var EditButton = function EditButton(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/common/buttons/SaveButton.jsx":
+/***/ "./frontend/components/shared/buttons/SaveButton.jsx":
 /*!***********************************************************!*\
-  !*** ./frontend/components/common/buttons/SaveButton.jsx ***!
+  !*** ./frontend/components/shared/buttons/SaveButton.jsx ***!
   \***********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
