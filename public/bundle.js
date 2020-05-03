@@ -2636,6 +2636,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.withCredentials = true;
 var StoreContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])({});
 var baseUrl = "http://localhost:8000/";
+console.log("process.env.API_HOST:", baseUrl);
 
 var handleError = function handleError(error) {
   return console.log(error);

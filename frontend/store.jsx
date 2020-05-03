@@ -10,6 +10,7 @@ axios.defaults.withCredentials = true;
 export const StoreContext = createContext({});
 
 const baseUrl = process.env.API_HOST;
+console.log("process.env.API_HOST:", baseUrl);
 const handleError = (error) => console.log(error);
 const log = ({ functionName, statePath, oldState, data, newState }) => {
   console.groupCollapsed(`${functionName} at ${JSON.stringify(statePath)}`);
