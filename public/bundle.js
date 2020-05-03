@@ -868,7 +868,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store */ "./frontend/store.jsx");
 /* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal */ "./frontend/components/Modal.jsx");
-/* harmony import */ var _common_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./common/Input */ "./frontend/components/common/Input.jsx");
+/* harmony import */ var _shared_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared/Input */ "./frontend/components/shared/Input.jsx");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -937,7 +937,7 @@ var Login = function Login() {
       className: "item-detail-name"
     }, displayName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "item-detail-value"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
       value: formData[fieldName],
       type: type,
       onChange: function onChange(newVal) {
@@ -1374,148 +1374,6 @@ var Tab = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(fu
     })
   }, children);
 });
-
-/***/ }),
-
-/***/ "./frontend/components/common/Input.jsx":
-/*!**********************************************!*\
-  !*** ./frontend/components/common/Input.jsx ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
-/* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils */ "./utils/index.js");
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-
-
-
-
- // if props.save is defined and props.type is text, then `save` will be called if user presses enter in the text input.
-
-var Input = function Input(_ref) {
-  var type = _ref.type,
-      value = _ref.value,
-      _onChange = _ref.onChange,
-      valueOptions = _ref.valueOptions,
-      save = _ref.save,
-      inputRef = _ref.inputRef,
-      className = _ref.className;
-  var commonInputProps = {
-    onKeyUp: function onKeyUp(_ref2) {
-      var keyCode = _ref2.keyCode;
-
-      if (save && keyCode === 13
-      /* 13 is enter key */
-      ) {
-          save();
-        }
-    },
-    ref: inputRef,
-    className: className
-  };
-
-  if (type === "date") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      selected: value,
-      onChange: function onChange(date) {
-        return _onChange(date);
-      }
-    });
-  }
-
-  if (type === "checkbox") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
-      type: "checkbox",
-      checked: value,
-      onChange: function onChange(_ref3) {
-        var checked = _ref3.target.checked;
-        return _onChange(checked);
-      }
-    }, commonInputProps));
-  }
-
-  if (type === "radio") {
-    return valueOptions.map(function (option) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "radio-buttons-row",
-        key: option.value
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
-        type: "radio",
-        value: option.value,
-        checked: value === option.value,
-        onChange: function onChange() {
-          return _onChange(option.value);
-        },
-        id: option.value
-      }, commonInputProps)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "radio-button-display-name"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: option.value
-      }, option.displayName || Object(_utils__WEBPACK_IMPORTED_MODULE_4__["capitalize"])(option.value))));
-    });
-  }
-
-  if (type === "dropdown") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
-      value: value || "",
-      onChange: function onChange(_ref4) {
-        var value = _ref4.target.value;
-        return _onChange(value);
-      }
-    }, commonInputProps), valueOptions.map(function (option) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: option.value,
-        disabled: option.isDisabled,
-        key: option.value
-      }, option.displayName || option.value);
-    }));
-  }
-
-  if (type === "text-box") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-      value: value,
-      onChange: function onChange(_ref5) {
-        var value = _ref5.target.value;
-        return _onChange(value);
-      },
-      ref: inputRef,
-      className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(className, "text-box")
-    });
-  }
-
-  if (type === "password") {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
-      type: "password",
-      value: value,
-      onChange: function onChange(_ref6) {
-        var value = _ref6.target.value;
-        return _onChange(value);
-      }
-    }, commonInputProps));
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
-    type: "text",
-    value: value,
-    onChange: function onChange(_ref7) {
-      var value = _ref7.target.value;
-      return _onChange(value);
-    }
-  }, commonInputProps));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Input);
 
 /***/ }),
 

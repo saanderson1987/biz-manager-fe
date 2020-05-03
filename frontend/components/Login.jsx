@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { StoreContext } from "../store";
 import Modal from "./Modal";
-import Input from "./common/Input";
+import Input from "./shared/Input";
 
 const Login = () => {
   const {
