@@ -442,9 +442,8 @@ var ItemDetails = function ItemDetails(_ref) {
       updateValue: function updateValue(newValue) {
         return updateRecord({
           route: route,
-          record: _defineProperty({
-            id: item.id
-          }, field.columnName, newValue || null),
+          id: item.id,
+          record: _defineProperty({}, field.columnName, newValue || null),
           statePath: statePath
         });
       },
@@ -648,9 +647,8 @@ var ListItem = function ListItem(_ref) {
     update: function update(newValue) {
       return updateRecord({
         route: route,
-        record: _defineProperty({
-          id: item.id
-        }, itemNameColumnName, newValue),
+        id: item.id,
+        record: _defineProperty({}, itemNameColumnName, newValue),
         statePath: statePath
       });
     },
@@ -1224,6 +1222,7 @@ var NewItemForm = function NewItemForm(_ref) {
       createRecord({
         route: _constants__WEBPACK_IMPORTED_MODULE_2__["apiRouteByItemType"][type],
         newRecord: newRecord,
+        queryParams: _constants__WEBPACK_IMPORTED_MODULE_2__["itemDetailsGetByIdQueryParams"][type] || {},
         statePath: statePath
       }).then(function () {
         if (_constants__WEBPACK_IMPORTED_MODULE_2__["onAddOrRemoveByType"][type]) {
@@ -1887,7 +1886,7 @@ var SaveButton = function SaveButton(_ref) {
 /*!*******************************!*\
   !*** ./frontend/constants.js ***!
   \*******************************/
-/*! exports provided: tableNameListType, parentColumnByItemType, apiRouteByItemType, queryParamsByItemType, createListGetByQueryOptions, getItemWarningByItemType, onAddOrRemoveByType, createItemDetailsGetByIdQueryOptions, listNameByItemType, getDefaultListSortFuncByItemType, getItemNameFuncByItemType, itemListsByItemType, itemDetailFieldsByItemType, itemNameByItemType, newItemFormFieldsByItemType, getNewItemRecordBase */
+/*! exports provided: tableNameListType, parentColumnByItemType, apiRouteByItemType, queryParamsByItemType, createListGetByQueryOptions, itemDetailsGetByIdQueryParams, getItemWarningByItemType, onAddOrRemoveByType, createItemDetailsGetByIdQueryOptions, listNameByItemType, getDefaultListSortFuncByItemType, getItemNameFuncByItemType, itemListsByItemType, itemDetailFieldsByItemType, itemNameByItemType, newItemFormFieldsByItemType, getNewItemRecordBase */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1897,6 +1896,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "apiRouteByItemType", function() { return apiRouteByItemType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "queryParamsByItemType", function() { return queryParamsByItemType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createListGetByQueryOptions", function() { return createListGetByQueryOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "itemDetailsGetByIdQueryParams", function() { return itemDetailsGetByIdQueryParams; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getItemWarningByItemType", function() { return getItemWarningByItemType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onAddOrRemoveByType", function() { return onAddOrRemoveByType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createItemDetailsGetByIdQueryOptions", function() { return createItemDetailsGetByIdQueryOptions; });
@@ -1990,9 +1990,8 @@ var queryParamsByItemType = {
     attributes: "installationDate"
   },
   vendorOrders: {
-    attributes: "vendor_name,dateOrdered"
+    attributes: "vendor_name,dateOrdered,doesHaveReplacements"
   },
-  //,doesHaveReplacements
   vendors: {
     attributes: "name",
     status: "vendor"
@@ -2023,6 +2022,9 @@ var itemDetailsGetByIdQueryParams = {
   },
   notes: {
     attributes: "contents,author_name,updatedAt"
+  },
+  vendorOrders: {
+    attributes: "vendor_name,poNum,trackingNum,dateOrdered,numberOfPieces,completed,doesHaveReplacements"
   },
   vendorOrderReplacements: {
     attributes: "itemNumber,completed,updatedAt"
@@ -2677,8 +2679,11 @@ var StoreProvider = function StoreProvider(_ref2) {
     createRecord: function createRecord(_ref3) {
       var route = _ref3.route,
           newRecord = _ref3.newRecord,
+          queryParams = _ref3.queryParams,
           statePath = _ref3.statePath;
-      return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(baseUrl + route, newRecord).then(function (_ref4) {
+      return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(baseUrl + route, newRecord, {
+        params: queryParams
+      }).then(function (_ref4) {
         var data = _ref4.data;
         return setState(function (oldState) {
           var newState = lodash_update__WEBPACK_IMPORTED_MODULE_5___default()(lodash_clonedeep__WEBPACK_IMPORTED_MODULE_2___default()(oldState), [].concat(_toConsumableArray(statePath), [data.id]), function (currVal) {
@@ -2744,9 +2749,16 @@ var StoreProvider = function StoreProvider(_ref2) {
     },
     updateRecord: function updateRecord(_ref9) {
       var route = _ref9.route,
+          id = _ref9.id,
           record = _ref9.record,
+          _ref9$queryParams = _ref9.queryParams,
+          queryParams = _ref9$queryParams === void 0 ? {} : _ref9$queryParams,
           statePath = _ref9.statePath;
-      return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(baseUrl + route + "/" + record.id, record).then(function (_ref10) {
+      return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(baseUrl + route + "/" + id, record, {
+        params: _objectSpread(_objectSpread({}, queryParams), {}, {
+          attributes: queryParams.attributes || Object.keys(record).join(",")
+        })
+      }).then(function (_ref10) {
         var data = _ref10.data;
         setState(function (oldState) {
           var newState = lodash_update__WEBPACK_IMPORTED_MODULE_5___default()(lodash_clonedeep__WEBPACK_IMPORTED_MODULE_2___default()(oldState), [].concat(_toConsumableArray(statePath), [data.id]), function (currVal) {

@@ -6,6 +6,7 @@ import {
   apiRouteByItemType,
   getNewItemRecordBase,
   onAddOrRemoveByType,
+  itemDetailsGetByIdQueryParams,
 } from "../constants";
 import { StoreContext } from "../store";
 import NewItemDetail from "./NewItemDetail";
@@ -73,6 +74,7 @@ const NewItemForm = ({ type, parentId, statePath, closeModal }) => {
               createRecord({
                 route: apiRouteByItemType[type],
                 newRecord,
+                queryParams: itemDetailsGetByIdQueryParams[type] || {},
                 statePath,
               }).then(() => {
                 if (onAddOrRemoveByType[type]) {

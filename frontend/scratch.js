@@ -67,7 +67,7 @@ export const queryParamsByItemType = {
   jobs: { attributes: "name" },
   jobOrders: { attributes: "dateOrdered" },
   installations: { attributes: "installationDate" },
-  vendorOrders: { attributes: "vendor_name,dateOrdered,doesHaveReplacements" },
+  vendorOrders: { attributes: "vendor_name,dateOrdered" }, //,doesHaveReplacements
   vendors: { attributes: "name", status: "vendor" },
   notes: { attributes: "contents,updatedAt" },
   vendorOrderReplacements: { attributes: "itemNumber" },
@@ -85,7 +85,7 @@ export const createListGetByQueryOptions = (type, parentId, statePath) => {
   };
 };
 
-export const itemDetailsGetByIdQueryParams = {
+const itemDetailsGetByIdQueryParams = {
   contacts: {
     attributes: "name,phoneNum,email,position",
   },
@@ -94,10 +94,6 @@ export const itemDetailsGetByIdQueryParams = {
       "name,poNum,status,budgetSentDate,imageProposalSentDate,artPlanSentDate,receivableStatus",
   },
   notes: { attributes: "contents,author_name,updatedAt" },
-  vendorOrders: {
-    attributes:
-      "vendor_name,poNum,trackingNum,dateOrdered,numberOfPieces,completed,doesHaveReplacements",
-  },
   vendorOrderReplacements: { attributes: "itemNumber,completed,updatedAt" },
   installers: { attributes: "name" },
 };

@@ -37,7 +37,8 @@ const ListItem = ({ type, item, isFirst, parentId, statePath }) => {
         update={(newValue) =>
           updateRecord({
             route,
-            record: { id: item.id, [itemNameColumnName]: newValue },
+            id: item.id,
+            record: { [itemNameColumnName]: newValue },
             statePath,
           })
         }

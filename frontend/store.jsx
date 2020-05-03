@@ -33,9 +33,9 @@ export const StoreProvider = ({ children }) => {
   });
 
   const updaterFunctions = {
-    createRecord: ({ route, newRecord, statePath }) =>
+    createRecord: ({ route, newRecord, queryParams, statePath }) =>
       axios
-        .post(baseUrl + route, newRecord)
+        .post(baseUrl + route, newRecord, { params: queryParams })
         .then(({ data }) =>
           setState((oldState) => {
             const newState = update(
@@ -99,9 +99,14 @@ export const StoreProvider = ({ children }) => {
         )
         .catch(handleError),
 
-    updateRecord: ({ route, record, statePath }) =>
+    updateRecord: ({ route, id, record, queryParams = {}, statePath }) =>
       axios
-        .put(baseUrl + route + "/" + record.id, record)
+        .put(baseUrl + route + "/" + id, record, {
+          params: {
+            ...queryParams,
+            attributes: queryParams.attributes || Object.keys(record).join(","),
+          },
+        })
         .then(({ data }) => {
           setState((oldState) => {
             const newState = update(
