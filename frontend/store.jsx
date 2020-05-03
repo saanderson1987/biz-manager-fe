@@ -5,6 +5,8 @@ import merge from "lodash.merge";
 import unset from "lodash.unset";
 import update from "lodash.update";
 
+axios.defaults.withCredentials = true;
+
 export const StoreContext = createContext({});
 
 const baseUrl = "http://localhost:8000/";
@@ -57,9 +59,7 @@ export const StoreProvider = ({ children }) => {
 
     getByQuery: ({ route, queryParams, statePath }) =>
       axios
-        .get(baseUrl + route, {
-          params: queryParams,
-        })
+        .get(baseUrl + route, { params: queryParams })
         .then(({ data }) =>
           setState((oldState) => {
             const newState = update(cloneDeep(oldState), statePath, (currVal) =>
@@ -147,7 +147,7 @@ export const StoreProvider = ({ children }) => {
 
     getAuthenticationStatus: () =>
       axios
-        .get("/isAuthenticated")
+        .get(baseUrl + "isAuthenticated")
         .then(({ data }) => {
           const { isAuthenticated, user } = data;
           setState((oldState) => {
@@ -170,7 +170,7 @@ export const StoreProvider = ({ children }) => {
 
     login: (data) =>
       axios
-        .post("/login", data)
+        .post(baseUrl + "login", data)
         .then(({ data }) => {
           const { isAuthenticated, user } = data;
           setState((oldState) => {
@@ -203,7 +203,7 @@ export const StoreProvider = ({ children }) => {
 
     logout: () =>
       axios
-        .get("/logout")
+        .get(baseUrl + "logout")
         .then(({ data: { isAuthenticated } }) =>
           setState((oldState) => {
             const newState = {

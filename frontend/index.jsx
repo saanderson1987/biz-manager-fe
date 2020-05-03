@@ -9,9 +9,9 @@ import App from "./components/App";
 render(
   <StoreProvider>
     <BrowserRouter>
-      {/* <Protected> */}
-      <Route path="/" component={App} />
-      {/* </Protected> */}
+      <Protected>
+        <Route path="/" component={App} />
+      </Protected>
     </BrowserRouter>
   </StoreProvider>,
   document.getElementById("root")

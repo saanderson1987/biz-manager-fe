@@ -2571,10 +2571,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_store__WEBPACK_IMPORTED_MODULE_4__["StoreProvider"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_store__WEBPACK_IMPORTED_MODULE_4__["StoreProvider"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Protected__WEBPACK_IMPORTED_MODULE_5__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   path: "/",
   component: _components_App__WEBPACK_IMPORTED_MODULE_6__["default"]
-}))), document.getElementById("root"));
+})))), document.getElementById("root"));
 
 /***/ }),
 
@@ -2633,6 +2633,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.withCredentials = true;
 var StoreContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])({});
 var baseUrl = "http://localhost:8000/";
 
@@ -2796,7 +2797,7 @@ var StoreProvider = function StoreProvider(_ref2) {
       })["catch"](handleError);
     },
     getAuthenticationStatus: function getAuthenticationStatus() {
-      return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/isAuthenticated").then(function (_ref13) {
+      return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(baseUrl + "isAuthenticated").then(function (_ref13) {
         var data = _ref13.data;
         var isAuthenticated = data.isAuthenticated,
             user = data.user;
@@ -2820,7 +2821,7 @@ var StoreProvider = function StoreProvider(_ref2) {
       })["catch"](handleError);
     },
     login: function login(data) {
-      return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/login", data).then(function (_ref14) {
+      return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(baseUrl + "login", data).then(function (_ref14) {
         var data = _ref14.data;
         var isAuthenticated = data.isAuthenticated,
             user = data.user;
@@ -2855,7 +2856,7 @@ var StoreProvider = function StoreProvider(_ref2) {
       });
     },
     logout: function logout() {
-      return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/logout").then(function (_ref15) {
+      return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(baseUrl + "logout").then(function (_ref15) {
         var isAuthenticated = _ref15.data.isAuthenticated;
         return setState(function (oldState) {
           var newState = _objectSpread(_objectSpread({}, oldState), {}, {
