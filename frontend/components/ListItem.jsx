@@ -1,28 +1,26 @@
 import React, { useContext, useState } from "react";
 import classNames from "classnames";
-import {
-  getItemNameFuncByItemType,
-  apiRouteByItemType,
-  itemListsByItemType,
-  getItemWarningByItemType,
-  onAddOrRemoveByType,
-} from "../constants";
-import { StoreContext } from "../store";
+import { ListContext } from "../contexts/ListContext";
 import ListItemHeader from "./ListItemHeader";
 import ItemDetails from "./ItemDetails";
 import List from "./List";
 import DeleteWarning from "./DeleteWarning";
 
-const ListItem = ({ type, item, isFirst, parentId, statePath }) => {
-  const storeContext = useContext(StoreContext);
-  const { updateRecord, deleteRecord } = storeContext;
+const ListItem = ({ item, isFirst }) => {
+  const {
+    updateListItem,
+    deleteListItem,
+    getListItemName,
+    getItemWarning,
+    listItemLists,
+    statePath,
+    createHooks,
+  } = useContext(ListContext);
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [isDeleteWarningVisible, setIsDeleteWarningVisible] = useState(false);
 
-  const { itemName, itemNameColumnName } = getItemNameFuncByItemType[type](
-    item
-  );
-  const route = apiRouteByItemType[type];
+  const { itemName, itemNameColumnName } = getListItemName(item);
 
   return (
     <div className={classNames("list-item", { "list-item--first": isFirst })}>
@@ -31,32 +29,23 @@ const ListItem = ({ type, item, isFirst, parentId, statePath }) => {
         isExpanded={isExpanded}
         toggleExpanded={() => setIsExpanded(!isExpanded)}
         isEditable={!!itemNameColumnName}
-        warning={
-          getItemWarningByItemType[type] && getItemWarningByItemType[type](item)
-        }
+        warning={getItemWarning(item)}
         update={(newValue) =>
-          updateRecord({
-            route,
+          updateListItem({
             id: item.id,
             record: { [itemNameColumnName]: newValue },
-            statePath,
           })
         }
         onClickDelete={() => setIsDeleteWarningVisible(true)}
       />
       {isExpanded && (
         <>
-          <ItemDetails
-            type={type}
-            itemId={item.id}
-            parentId={parentId}
-            statePath={statePath}
-          />
-          {(itemListsByItemType[type] || []).map((list, i) => (
+          <ItemDetails itemId={item.id} />
+          {listItemLists.map((list, i) => (
             <List
               type={list.type}
-              parentId={item.id}
               statePath={[...statePath, item.id, list.type]}
+              hooks={createHooks(item.id)}
               key={i}
             />
           ))}
@@ -66,13 +55,7 @@ const ListItem = ({ type, item, isFirst, parentId, statePath }) => {
         <DeleteWarning
           itemName={itemName}
           closeModal={() => setIsDeleteWarningVisible(false)}
-          deleteItem={() =>
-            deleteRecord({ route, id: item.id, statePath }).then(() => {
-              if (onAddOrRemoveByType[type]) {
-                onAddOrRemoveByType[type](statePath, storeContext);
-              }
-            })
-          }
+          deleteItem={() => deleteListItem(item.id)}
         />
       )}
     </div>

@@ -2,14 +2,9 @@ import React from "react";
 import Modal from "./Modal";
 import NewItemForm from "./NewItemForm";
 
-const NewItemModal = ({ closeModal, type, statePath, parentId }) => (
+const NewItemModal = ({ closeModal }) => (
   <Modal closeModal={closeModal}>
-    <NewItemForm
-      type={type}
-      closeModal={closeModal}
-      statePath={statePath}
-      parentId={parentId}
-    />
+    <NewItemForm closeModal={closeModal} />
   </Modal>
 );
 

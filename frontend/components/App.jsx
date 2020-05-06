@@ -12,25 +12,21 @@ export default () => (
       <Route path="/companies" component={CompaniesPage} />
       <Route
         path="/jobs"
-        render={() => <List type="jobs" statePath={["jobs"]} isRoot />}
+        render={() => <List type="jobs" statePath={["jobs"]} />}
       />
       <Route
         path="/orders"
-        render={() => (
-          <List type="jobOrders" statePath={["jobOrders"]} isRoot />
-        )}
+        render={() => <List type="jobOrders" statePath={["jobOrders"]} />}
       />
       <Route
         path="/installations"
         render={() => (
-          <List type="installations" statePath={["installations"]} isRoot />
+          <List type="installations" statePath={["installations"]} />
         )}
       />
       <Route
         path="/receiveables"
-        render={() => (
-          <List type="receiveables" statePath={["receiveables"]} isRoot />
-        )}
+        render={() => <List type="receiveables" statePath={["receiveables"]} />}
       />
       <Redirect exact from="/" to="/companies" />
       <Route component={NotFound} />

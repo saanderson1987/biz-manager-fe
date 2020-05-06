@@ -26,6 +26,7 @@ const DropdownWithQuery = ({ value, type, onChange }) => {
   const items = Object.values(state[type]);
   const itemTypeName = itemNameByItemType[type];
 
+  throw new Error("DropdownWithQuery needs to be refactored");
   return (
     <>
       <Input
