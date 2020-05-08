@@ -1,15 +1,16 @@
 import React, { createContext, useContext } from "react";
 import { ListDataContext } from "./ListDataContext";
 import { createListConfig } from "../list-config";
+
 export const ListContext = createContext({});
 
 export const ListContextProvider = ({ listType, statePath, children }) => {
-  const { setListDataStore } = useContext(ListDataContext);
+  const { dispatchToListDataStore } = useContext(ListDataContext);
 
   const listConfig = createListConfig({
     listType,
     statePath,
-    setListDataStore,
+    dispatchToListDataStore,
   });
 
   return (

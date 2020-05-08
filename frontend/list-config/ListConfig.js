@@ -1,8 +1,4 @@
 import axios from "axios";
-import cloneDeep from "lodash.clonedeep";
-import merge from "lodash.merge";
-import unset from "lodash.unset";
-import update from "lodash.update";
 
 axios.defaults.withCredentials = true;
 
@@ -11,7 +7,7 @@ const baseUrl = process.env.API_HOST;
 export default class ListConfig {
   constructor({
     statePath,
-    setListDataStore,
+    dispatchToListDataStore,
     apiRoute,
     parentColumn,
     hooks,
@@ -24,7 +20,7 @@ export default class ListConfig {
     newItemFormFields,
   }) {
     this.statePath = statePath;
-    this.setListDataStore = setListDataStore;
+    this.dispatchToListDataStore = dispatchToListDataStore;
     this.apiRoute = apiRoute;
     this.queryParamsForGetByQuery = queryParamsForGetByQuery;
     this.queryParamsForGetById = queryParamsForGetById;
@@ -85,23 +81,25 @@ export default class ListConfig {
 
   // stateUpdateFunctions
   mergeListItemsToState(itemsById) {
-    this.setListDataStore((oldState) =>
-      update(cloneDeep(oldState), this.statePath, (currVal) =>
-        merge({}, currVal, itemsById)
-      )
-    );
+    this.dispatchToListDataStore({
+      type: "mergeListItems",
+      statePath: this.statePath,
+      data: itemsById,
+    });
   }
   mergeListItemToState(item) {
-    this.setListDataStore((oldState) =>
-      update(cloneDeep(oldState), [...this.statePath, item.id], (currVal) =>
-        merge({}, currVal, item)
-      )
-    );
+    this.dispatchToListDataStore({
+      type: "mergeListItem",
+      statePath: this.statePath,
+      data: item,
+    });
   }
   removeListItemFromState(itemId) {
-    this.setListDataStore((oldState) =>
-      unset(cloneDeep(oldState), [...this.statePath, itemId])
-    );
+    this.dispatchToListDataStore({
+      type: "removeListItem",
+      statePath: this.statePath,
+      data: itemId,
+    });
   }
 
   // dataQueryFunctions

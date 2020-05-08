@@ -24,9 +24,13 @@ const listConfigs = {
   vendors,
 };
 
-export const createListConfig = ({ listType, statePath, setListDataStore }) =>
+export const createListConfig = ({
+  listType,
+  statePath,
+  dispatchToListDataStore,
+}) =>
   new listConfigs[listType].listConfig({
     statePath,
-    setListDataStore,
+    dispatchToListDataStore,
     ...listConfigs[listType].params,
   });
