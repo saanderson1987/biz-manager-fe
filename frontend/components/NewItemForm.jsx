@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthenticationContext } from "../contexts/AuthenticationContext";
+import { ListContext } from "../contexts/ListContext";
 import NewItemDetail from "./NewItemDetail";
 
 const createPendingNewRecord = (newItemFormFields) =>
@@ -18,9 +19,12 @@ const NewItemForm = ({ closeModal }) => {
   const {
     authenticationState: { user },
   } = useContext(AuthenticationContext);
-  const { newItemFormFields, listItemTypeName, createListItem } = useContext(
-    ListContext
-  );
+  const {
+    newItemFormFields,
+    listItemTypeName,
+    createListItem,
+    addNewItemBaseRecord,
+  } = useContext(ListContext);
 
   const [pendingNewRecord, setPendingNewRecord] = useState(
     createPendingNewRecord(newItemFormFields)

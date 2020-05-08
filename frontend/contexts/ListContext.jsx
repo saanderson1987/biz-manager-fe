@@ -28,6 +28,8 @@ export const ListContextProvider = ({ listType, statePath, children }) => {
         defaultSortListFunc: listConfig.defaultSortListFunc,
         // NewItemForm comp
         listItemTypeName: listConfig.listItemTypeName,
+        newItemFormFields: listConfig.newItemFormFields,
+        addNewItemBaseRecord: listConfig.addNewItemBaseRecord,
         // ListItem comp
         listItemLists: listConfig.listItemLists,
         getListItemName: listConfig.getListItemName,
