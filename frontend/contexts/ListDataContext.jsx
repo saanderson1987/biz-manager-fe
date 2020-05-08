@@ -22,7 +22,9 @@ export const ListDataContextProvider = ({ children }) => {
           (currVal) => merge({}, currVal, action.data)
         );
       case "removeListItem":
-        return unset(cloneDeep(oldState), [...action.statePath, action.data]);
+        const newState = cloneDeep(oldState);
+        unset(newState, [...action.statePath, action.data]);
+        return newState;
       default:
         return oldState;
     }
