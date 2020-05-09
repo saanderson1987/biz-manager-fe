@@ -1,5 +1,7 @@
 import React, { createContext, useState } from "react";
+import useEnhancedReducer from "react-enhanced-reducer-hook";
 import axios from "axios";
+import { logger } from "./middlewares";
 
 axios.defaults.withCredentials = true;
 
@@ -8,18 +10,38 @@ const baseUrl = process.env.API_HOST;
 export const AuthenticationContext = createContext({});
 
 export const AuthenticationContextProvider = ({ children }) => {
-  const [authenticationState, setAuthenticationState] = useState({
-    isAuthenticated: null /* set to null to prevent the Login screen from flashing upon reload if user is authenticated */,
-    error: "",
-    user: {},
-  });
+  const reducer = (oldState, action) => {
+    switch (action.type) {
+      case "updateAuthenticationStatus":
+        return action.data;
+      default:
+        return oldState;
+    }
+  };
+
+  const middlewares = [];
+  if (process.env.NODE_ENV === "development") {
+    middlewares.push(logger);
+  }
+  const [authenticationState, dispatch] = useEnhancedReducer(
+    reducer,
+    {
+      isAuthenticated: null /* set to null to prevent the Login screen from flashing upon reload if user is authenticated */,
+      error: "",
+      user: {},
+    },
+    middlewares
+  );
 
   const getAuthenticationStatus = async () => {
     try {
       const {
         data: { isAuthenticated, user },
       } = await axios.get(baseUrl + "isAuthenticated");
-      setAuthenticationState({ isAuthenticated, user });
+      dispatch({
+        type: "updateAuthenticationStatus",
+        data: { isAuthenticated, user },
+      });
     } catch (e) {
       console.log(e);
     }
@@ -30,14 +52,20 @@ export const AuthenticationContextProvider = ({ children }) => {
       const {
         data: { isAuthenticated, user },
       } = await axios.post(baseUrl + "login", data);
-      setAuthenticationState({ isAuthenticated, user });
+      dispatch({
+        type: "updateAuthenticationStatus",
+        data: { isAuthenticated, user },
+      });
     } catch (e) {
       if (e.response.status === 401) {
-        setAuthenticationState((oldState) => ({
-          user: {},
-          isAuthenticated: false,
-          error: "Invalid username or password",
-        }));
+        dispatch({
+          type: "updateAuthenticationStatus",
+          data: {
+            user: {},
+            isAuthenticated: false,
+            error: "Invalid username or password",
+          },
+        });
       }
     }
   };
@@ -47,7 +75,10 @@ export const AuthenticationContextProvider = ({ children }) => {
       const {
         data: { isAuthenticated, user },
       } = await axios.get(baseUrl + "logout");
-      setAuthenticationState({ isAuthenticated, user });
+      dispatch({
+        type: "updateAuthenticationStatus",
+        data: { isAuthenticated, user },
+      });
     } catch (e) {
       console.log(e);
     }

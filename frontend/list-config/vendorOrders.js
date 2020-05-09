@@ -59,7 +59,6 @@ export default {
       { columnName: "dateOrdered", displayName: "Date Ordered", type: "date" },
       { columnName: "numberOfPieces", displayName: "Number of Pieces" },
       { columnName: "completed", type: "checkbox" },
-      { columnName: "notes" },
     ],
   },
 

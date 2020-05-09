@@ -21,7 +21,6 @@ export default {
     newItemFormFields: [
       { columnName: "itemNumber", displayName: "Item Number" },
       { columnName: "completed", type: "checkbox" },
-      { columnName: "notes" },
     ],
   },
 

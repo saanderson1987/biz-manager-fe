@@ -24,7 +24,6 @@ export default {
     ],
     newItemFormFields: [
       { columnName: "dateOrdered", displayName: "Date Ordered", type: "date" },
-      { columnName: "notes" },
     ],
   },
 

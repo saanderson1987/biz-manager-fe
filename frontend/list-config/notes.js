@@ -1,4 +1,5 @@
 import ListConfig from "./ListConfig";
+import { tableNameByListType } from "./index";
 
 export default {
   params: {
@@ -33,14 +34,22 @@ export default {
 
   listConfig: class NotesListConfig extends ListConfig {
     addNewItemBaseRecord(newRecord, userId) {
-      throw new Error("need to add author = userId ");
       const baseRecord = {};
       const parentType = this.statePath[this.statePath.length - 3];
       if (this.parentId && parentType) {
         baseRecord.parentTable = tableNameByListType[parentType];
       }
-      return { ...super.addNewItemBaseRecord(newRecord), status: "vendor" };
+      baseRecord.authorId = userId;
+      return { ...super.addNewItemBaseRecord(newRecord), ...baseRecord };
     }
+
+    addParentIdParam(queryParams) {
+      return {
+        ...super.addParentIdParam(queryParams),
+        parentTable: tableNameByListType[this.parentType],
+      };
+    }
+
     getListItemName(item) {
       let itemName = item.contents || "";
       itemName = itemName.replace("\n", "...");

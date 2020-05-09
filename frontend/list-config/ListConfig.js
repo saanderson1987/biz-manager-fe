@@ -179,13 +179,10 @@ export default class ListConfig {
   getItemWarning(item) {}
 
   // NewItemForm comp
-  addNewItemBaseRecord(newRecord, userId) {
+  addNewItemBaseRecord(newRecord) {
     const baseRecord = {};
     if (this.parentColumn && this.parentId) {
       baseRecord[this.parentColumn] = this.parentId;
-    }
-    if (newRecord.notes) {
-      throw new Error("need to add author = userId ");
     }
     return { ...baseRecord, ...newRecord };
   }

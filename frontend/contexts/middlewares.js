@@ -1,7 +1,8 @@
 export const logger = ({ getState }) => (next) => (action) => {
-  console.groupCollapsed(
-    `${action.type} at ${JSON.stringify(action.statePath)}`
-  );
+  const statePathString = action.statePath
+    ? ` at ${JSON.stringify(action.statePath)}`
+    : "";
+  console.groupCollapsed(action.type + statePathString);
   console.log("oldState:", getState());
   console.log("data:", action.data);
   next(action);

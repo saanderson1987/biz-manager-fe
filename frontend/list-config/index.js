@@ -34,3 +34,16 @@ export const createListConfig = ({
     dispatchToListDataStore,
     ...listConfigs[listType].params,
   });
+
+export const tableNameByListType = {
+  clients: "Companies",
+  prospects: "Companies",
+  vendors: "Companies",
+  contacts: "People",
+  jobs: "Jobs",
+  jobOrders: "JobOrders",
+  installations: "Installations",
+  vendorOrders: "VendorOrders",
+  vendorOrderReplacements: "VendorOrderReplacements",
+  installers: "Installer",
+};

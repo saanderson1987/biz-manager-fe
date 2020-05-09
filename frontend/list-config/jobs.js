@@ -76,7 +76,6 @@ export default {
         type: "radio",
         valueOptions: [{ value: "prospect" }, { value: "client" }],
       },
-      { columnName: "notes" },
     ],
   },
 
