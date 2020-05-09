@@ -25,7 +25,13 @@ const Input = ({
   };
 
   if (type === "date") {
-    return <DatePicker selected={value} onChange={(date) => onChange(date)} />;
+    return (
+      <DatePicker
+        selected={value}
+        onChange={(date) => onChange(date)}
+        className={className}
+      />
+    );
   }
   if (type === "checkbox") {
     return (

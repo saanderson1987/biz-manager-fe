@@ -71,10 +71,19 @@ export default {
     ],
     newItemFormFields: [
       { columnName: "name" },
+      { columnName: "poNum", displayName: "PO #" },
       {
-        columnName: "status",
-        type: "radio",
-        valueOptions: [{ value: "prospect" }, { value: "client" }],
+        columnName: "receivableStatus",
+        type: "dropdown",
+        valueOptions: [
+          {
+            value: "PO sent",
+          },
+          { value: "50% paid" },
+          {
+            value: "100% paid",
+          },
+        ],
       },
     ],
   },

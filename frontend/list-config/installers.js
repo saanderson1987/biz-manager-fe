@@ -7,13 +7,19 @@ export default {
     listName: "Installers",
     listItemTypeName: "Installer",
     queryParamsForGetByQuery: {
-      attributes: "name",
+      attributes: "person_name",
     },
     queryParamsForGetById: {
-      attributes: "name",
+      attributes: "person_name",
     },
-    newItemFormFields: [{ columnName: "name" }],
+    newItemFormFields: [{ columnName: "person_name", displayName: "Name" }],
   },
 
-  listConfig: ListConfig,
+  listConfig: class InstallersConfig extends ListConfig {
+    getListItemName(item) {
+      return {
+        itemName: item.person_name,
+      };
+    }
+  },
 };
