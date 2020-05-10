@@ -19,6 +19,7 @@ export default {
     getListItemName(item) {
       return {
         itemName: item.person_name,
+        itemNameColumnName: "person_name",
       };
     }
   },

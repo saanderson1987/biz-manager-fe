@@ -25,6 +25,8 @@ export const ListDataContextProvider = ({ children }) => {
         const newState = cloneDeep(oldState);
         unset(newState, [...action.statePath, action.data]);
         return newState;
+      case "logError":
+        return { ...oldState, error: action.data };
       default:
         return oldState;
     }
@@ -52,7 +54,11 @@ export const ListDataContextProvider = ({ children }) => {
 
   return (
     <ListDataContext.Provider
-      value={{ listDataStore, dispatchToListDataStore }}
+      value={{
+        listDataStore,
+        dispatchToListDataStore,
+        error: listDataStore.error,
+      }}
     >
       {children}
     </ListDataContext.Provider>

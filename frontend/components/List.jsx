@@ -5,9 +5,12 @@ import { ListDataContext } from "../contexts/ListDataContext";
 import { ListContext, ListContextProvider } from "../contexts/ListContext";
 import ListItem from "./ListItem";
 import NewItemModal from "./NewItemModal";
+import ListErrorModal from "./ListErrorModal";
 
 const List = () => {
-  const { listDataStore } = useContext(ListDataContext);
+  const { listDataStore, dispatchToListDataStore } = useContext(
+    ListDataContext
+  );
   const { getListItems, statePath, defaultSortListFunc, listName } = useContext(
     ListContext
   );
@@ -44,6 +47,14 @@ const List = () => {
       </div>
       {isNewItemModalVisible && (
         <NewItemModal closeModal={() => setIsNewItemModalVisible(false)} />
+      )}
+      {listDataStore.error && (
+        <ListErrorModal
+          error={listDataStore.error}
+          closeModal={() =>
+            dispatchToListDataStore({ type: "logError", data: "" })
+          }
+        />
       )}
     </div>
   );

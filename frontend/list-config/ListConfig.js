@@ -111,7 +111,7 @@ export default class ListConfig {
       );
       this.mergeListItemToState(newItem);
     } catch (e) {
-      console.log(e);
+      this.dispatchToListDataStore({ type: "logError", data: e.toString() });
     }
   }
   async getListItems() {
@@ -121,7 +121,7 @@ export default class ListConfig {
       );
       this.mergeListItemsToState(itemsById);
     } catch (e) {
-      console.log(e);
+      this.dispatchToListDataStore({ type: "logError", data: e.toString() });
     }
   }
   async getListItemById(id) {
@@ -129,7 +129,7 @@ export default class ListConfig {
       const { data: item } = await this.getById(id, this.queryParamsForGetById);
       this.mergeListItemToState(item);
     } catch (e) {
-      console.log(e);
+      this.dispatchToListDataStore({ type: "logError", data: e.toString() });
     }
   }
   async updateListItem({ id, record }) {
@@ -141,7 +141,7 @@ export default class ListConfig {
       });
       this.mergeListItemToState(updatedItem);
     } catch (e) {
-      console.log(e);
+      this.dispatchToListDataStore({ type: "logError", data: e.toString() });
     }
   }
   async deleteListItem(id) {
@@ -152,7 +152,7 @@ export default class ListConfig {
         this.hooks.onDelete();
       }
     } catch (e) {
-      console.log(e);
+      this.dispatchToListDataStore({ type: "logError", data: e.toString() });
     }
   }
   //
