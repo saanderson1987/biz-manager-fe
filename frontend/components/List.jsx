@@ -7,7 +7,7 @@ import ListItem from "./ListItem";
 import NewItemModal from "./NewItemModal";
 import ListErrorModal from "./ListErrorModal";
 
-const List = () => {
+const List = ({ type }) => {
   const { listDataStore, dispatchToListDataStore } = useContext(
     ListDataContext
   );
@@ -19,13 +19,12 @@ const List = () => {
 
   useEffect(() => {
     getListItems();
-  }, []);
+  }, [type]);
 
   const isRoot = statePath.length === 1;
   const items = Object.values(get(listDataStore, statePath, {})).sort(
     defaultSortListFunc
   );
-
   return (
     <div className={"list"}>
       {!isRoot && <div className="list-name">{listName}:</div>}
@@ -62,6 +61,6 @@ const List = () => {
 
 export default ({ type, statePath }) => (
   <ListContextProvider listType={type} statePath={statePath}>
-    <List />
+    <List type={type} />
   </ListContextProvider>
 );

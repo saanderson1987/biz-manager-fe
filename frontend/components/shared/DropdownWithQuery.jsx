@@ -1,32 +1,30 @@
 import React, { useState, useEffect, useContext } from "react";
-import {
-  apiRouteByItemType,
-  queryParamsByItemType,
-  getItemNameFuncByItemType,
-  itemNameByItemType,
-} from "../../constants";
-import { StoreContext } from "../../store";
+import get from "lodash.get";
+import { ListContext, ListContextProvider } from "../../contexts/ListContext";
+import { ListDataContext } from "../../contexts/ListDataContext";
 import Input from "./Input";
 import NewItemModal from "../NewItemModal";
 
-const DropdownWithQuery = ({ value, type, onChange }) => {
-  const { state, getByQuery } = useContext(StoreContext);
+const DropdownWithQuery = ({ value, onChange }) => {
+  const { listDataStore } = useContext(ListDataContext);
+  const {
+    getListItems,
+    statePath,
+    defaultSortListFunc,
+    listItemTypeName,
+    getListItemName,
+  } = useContext(ListContext);
+
   const [isNewItemModalVisible, setIsNewItemModalVisible] = useState(false);
 
   useEffect(() => {
-    getByQuery({
-      route: apiRouteByItemType[type],
-      queryParams: {
-        ...queryParamsByItemType[type],
-      },
-      statePath: [type],
-    });
+    getListItems();
   }, []);
 
-  const items = Object.values(state[type]);
-  const itemTypeName = itemNameByItemType[type];
+  const items = Object.values(get(listDataStore, statePath, {})).sort(
+    defaultSortListFunc
+  );
 
-  throw new Error("DropdownWithQuery needs to be refactored");
   return (
     <>
       <Input
@@ -36,12 +34,12 @@ const DropdownWithQuery = ({ value, type, onChange }) => {
         valueOptions={[
           {
             value: "",
-            displayName: ` -- select a ${itemTypeName} -- `,
+            displayName: ` -- select a ${listItemTypeName} -- `,
             isDisabled: true,
           },
           ...items.map((item) => ({
             value: item.id,
-            displayName: getItemNameFuncByItemType[type](item).itemName,
+            displayName: getListItemName(item).itemName,
           })),
         ]}
       />
@@ -51,18 +49,18 @@ const DropdownWithQuery = ({ value, type, onChange }) => {
           onClick={() => setIsNewItemModalVisible(true)}
         >
           <i className="fas fa-plus-circle"></i>
-          <span>Create new {itemTypeName}</span>
+          <span>Create new {listItemTypeName}</span>
         </button>
       </div>
       {isNewItemModalVisible && (
-        <NewItemModal
-          type={type}
-          closeModal={() => setIsNewItemModalVisible(false)}
-          statePath={[type]}
-        />
+        <NewItemModal closeModal={() => setIsNewItemModalVisible(false)} />
       )}
     </>
   );
 };
 
-export default DropdownWithQuery;
+export default ({ type, value, onChange }) => (
+  <ListContextProvider listType={type} statePath={[type]}>
+    <DropdownWithQuery value={value} onChange={onChange} />
+  </ListContextProvider>
+);
