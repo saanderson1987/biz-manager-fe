@@ -27,10 +27,12 @@ const listConfigs = {
 export const createListConfig = ({
   listType,
   statePath,
+  hooks,
   dispatchToListDataStore,
 }) =>
   new listConfigs[listType].listConfig({
     statePath,
+    hooks,
     dispatchToListDataStore,
     ...listConfigs[listType].params,
   });

@@ -59,8 +59,8 @@ const List = ({ type }) => {
   );
 };
 
-export default ({ type, statePath }) => (
-  <ListContextProvider listType={type} statePath={statePath}>
+export default ({ type, statePath, hooks }) => (
+  <ListContextProvider listType={type} statePath={statePath} hooks={hooks}>
     <List type={type} />
   </ListContextProvider>
 );

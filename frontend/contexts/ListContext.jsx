@@ -4,12 +4,18 @@ import { createListConfig } from "../list-config";
 
 export const ListContext = createContext({});
 
-export const ListContextProvider = ({ listType, statePath, children }) => {
+export const ListContextProvider = ({
+  listType,
+  statePath,
+  hooks,
+  children,
+}) => {
   const { dispatchToListDataStore } = useContext(ListDataContext);
 
   const listConfig = createListConfig({
     listType,
     statePath,
+    hooks,
     dispatchToListDataStore,
   });
 

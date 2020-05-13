@@ -1,14 +1,15 @@
 import ListConfig from "./ListConfig";
 import { getDateString } from "../../utils";
 
-function getItemDoesHaveReplacements(itemId) {
-  return async function () {
-    const record = await this.getById(itemId, {
-      attributes: "doesHaveReplacements",
-    });
-    this.mergeListItemToState(record);
-  };
-}
+// function getItemDoesHaveReplacements(itemId) {
+//   return async function () {
+//     const record = await this.getById(itemId, {
+//       attributes: "doesHaveReplacements",
+//     });
+//     console.log("hi", record);
+//     this.mergeListItemToState(record);
+//   };
+// }
 
 export default {
   params: {
@@ -31,8 +32,8 @@ export default {
       {
         type: "vendorOrderReplacements",
         hookFuncs: {
-          onDelete: getItemDoesHaveReplacements,
-          onAdd: getItemDoesHaveReplacements,
+          onDelete: "getItemDoesHaveReplacements",
+          onAdd: "getItemDoesHaveReplacements",
         },
       },
     ],
@@ -77,6 +78,14 @@ export default {
         }
       }
       return { itemName };
+    }
+    getItemDoesHaveReplacements(itemId, thisVal) {
+      return async function () {
+        const { data: item } = await thisVal.getById(itemId, {
+          attributes: "doesHaveReplacements",
+        });
+        thisVal.mergeListItemToState(item);
+      };
     }
   },
 };

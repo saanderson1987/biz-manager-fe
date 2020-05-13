@@ -45,7 +45,7 @@ const ListItem = ({ item, isFirst }) => {
             <List
               type={list.type}
               statePath={[...statePath, item.id, list.type]}
-              hooks={createHooks(item.id)}
+              hooks={createHooks(list.hookFuncs, item.id)}
               key={i}
             />
           ))}

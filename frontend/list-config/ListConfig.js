@@ -24,7 +24,7 @@ export default class ListConfig {
     this.apiRoute = apiRoute;
     this.queryParamsForGetByQuery = queryParamsForGetByQuery;
     this.queryParamsForGetById = queryParamsForGetById;
-    this.hooks = hooks || [];
+    this.hooks = hooks || {};
     // List comp
     this.listName = listName;
     // ListItem comp
@@ -110,6 +110,9 @@ export default class ListConfig {
         this.queryParamsForGetById
       );
       this.mergeListItemToState(newItem);
+      if (this.hooks.onAdd) {
+        this.hooks.onAdd();
+      }
     } catch (e) {
       this.dispatchToListDataStore({ type: "logError", data: e.toString() });
     }
@@ -194,10 +197,13 @@ export default class ListConfig {
     }
     return queryParams;
   }
-  createHooks(itemId) {
+  createHooks(hookFuncs, itemId) {
     // inject itemId
-    return this.hooks.map(function (hook) {
-      return hook(itemId);
-    });
+    if (hookFuncs) {
+      return Object.entries(hookFuncs).reduce((acc, [key, value]) => {
+        acc[key] = this[value](itemId, this);
+        return acc;
+      }, {});
+    }
   }
 }
