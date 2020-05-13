@@ -1,15 +1,13 @@
 import React, { useState, useContext } from "react";
-import { StoreContext } from "../store";
+import { AuthenticationContext } from "../contexts/AuthenticationContext";
 import Modal from "./Modal";
 import Input from "./shared/Input";
 
 const Login = () => {
   const {
     login,
-    state: {
-      authentication: { error },
-    },
-  } = useContext(StoreContext);
+    authenticationState: { error },
+  } = useContext(AuthenticationContext);
   const [formData, setFormData] = useState({ username: "", password: "" });
 
   const fields = [

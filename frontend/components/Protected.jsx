@@ -1,14 +1,12 @@
 import React, { useEffect, useContext } from "react";
-import { StoreContext } from "../store";
+import { AuthenticationContext } from "../contexts/AuthenticationContext";
 import Login from "./Login";
 
 const Protected = ({ children }) => {
   const {
-    state: {
-      authentication: { isAuthenticated },
-    },
+    authenticationState: { isAuthenticated },
     getAuthenticationStatus,
-  } = useContext(StoreContext);
+  } = useContext(AuthenticationContext);
 
   useEffect(() => {
     getAuthenticationStatus();

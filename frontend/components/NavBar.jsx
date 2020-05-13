@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { StoreContext } from "../store";
+import { AuthenticationContext } from "../contexts/AuthenticationContext";
 
 const NavBar = () => {
-  const { logout } = useContext(StoreContext);
+  const { logout } = useContext(AuthenticationContext);
   const links = [
     <NavLink to="/companies">Companies</NavLink>,
     <NavLink to="/jobs">Jobs</NavLink>,

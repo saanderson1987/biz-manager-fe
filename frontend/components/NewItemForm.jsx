@@ -1,18 +1,10 @@
 import React, { useContext, useState } from "react";
-import { capitalize } from "../../utils";
-import {
-  itemNameByItemType,
-  newItemFormFieldsByItemType,
-  apiRouteByItemType,
-  getNewItemRecordBase,
-  onAddOrRemoveByType,
-  itemDetailsGetByIdQueryParams,
-} from "../constants";
-import { StoreContext } from "../store";
+import { AuthenticationContext } from "../contexts/AuthenticationContext";
+import { ListContext } from "../contexts/ListContext";
 import NewItemDetail from "./NewItemDetail";
 
-const createPendingNewRecord = (type) =>
-  newItemFormFieldsByItemType[type].reduce((acc, field) => {
+const createPendingNewRecord = (newItemFormFields) =>
+  newItemFormFields.reduce((acc, field) => {
     if (field.type === "checkbox") {
       acc[field.columnName] = false;
     } else if (field.type === "date") {
@@ -23,25 +15,28 @@ const createPendingNewRecord = (type) =>
     return acc;
   }, {});
 
-const NewItemForm = ({ type, parentId, statePath, closeModal }) => {
-  const storeContext = useContext(StoreContext);
+const NewItemForm = ({ closeModal }) => {
   const {
-    state: { user },
-    createRecord,
-  } = storeContext;
+    authenticationState: { user },
+  } = useContext(AuthenticationContext);
+  const {
+    newItemFormFields,
+    listItemTypeName,
+    createListItem,
+    addNewItemBaseRecord,
+  } = useContext(ListContext);
+
   const [pendingNewRecord, setPendingNewRecord] = useState(
-    createPendingNewRecord(type)
+    createPendingNewRecord(newItemFormFields)
   );
 
   return (
     <div className="form">
-      <div className="form-header">
-        Create New {capitalize(itemNameByItemType[type])}
-      </div>
+      <div className="form-header">Create New {listItemTypeName}</div>
       <div className="form-body">
         <table className="form-table">
           <tbody>
-            {newItemFormFieldsByItemType[type].map((field, i) => (
+            {newItemFormFields.map((field, i) => (
               <NewItemDetail
                 field={field}
                 detailValue={pendingNewRecord[field.columnName]}
@@ -62,25 +57,7 @@ const NewItemForm = ({ type, parentId, statePath, closeModal }) => {
           <button
             className="button--save"
             onClick={() => {
-              const newRecordBase = getNewItemRecordBase({
-                type,
-                parentId,
-                parentType: statePath[statePath.length - 3],
-                userId: user ? user.id : "",
-                type,
-                hasNotes: pendingNewRecord.notes,
-              });
-              const newRecord = { ...newRecordBase, ...pendingNewRecord };
-              createRecord({
-                route: apiRouteByItemType[type],
-                newRecord,
-                queryParams: itemDetailsGetByIdQueryParams[type] || {},
-                statePath,
-              }).then(() => {
-                if (onAddOrRemoveByType[type]) {
-                  onAddOrRemoveByType[type](statePath, storeContext);
-                }
-              });
+              createListItem(addNewItemBaseRecord(pendingNewRecord, user.id));
               closeModal();
             }}
           >

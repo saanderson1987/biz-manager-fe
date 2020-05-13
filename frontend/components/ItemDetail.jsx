@@ -1,5 +1,6 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { useContext, useState, useEffect, createRef } from "react";
 import classNames from "classnames";
+import { ListDataContext } from "../contexts/ListDataContext";
 import Loader from "./shared/Loader";
 import Input from "./shared/Input";
 import DisplayValue from "./shared/DisplayValue";
@@ -24,18 +25,18 @@ const ItemDetail = ({
   value,
   updateValue,
 }) => {
+  const { error } = useContext(ListDataContext);
   const [inEditMode, setInEditMode] = useState(false);
   const [isValueUpdating, setIsValueUpdating] = useState(false);
   const [editedValue, setEditedValue] = useState(
     formatDetailValueState(value, type)
   );
-
   useEffect(() => {
     setEditedValue(formatDetailValueState(value, type));
     if (isValueUpdating) {
       setIsValueUpdating(false);
     }
-  }, [value]);
+  }, [value, error]);
 
   useEffect(() => {
     if (

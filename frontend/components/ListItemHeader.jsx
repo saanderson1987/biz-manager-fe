@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import classNames from "classnames";
+import { ListDataContext } from "../contexts/ListDataContext";
 import ExpansionCaret from "./shared/ExpansionCaret";
 import Loader from "./shared/Loader";
 import Input from "./shared/Input";
@@ -17,6 +18,7 @@ const ListItemHeader = ({
   update,
   onClickDelete,
 }) => {
+  const { error } = useContext(ListDataContext);
   const [inEditMode, setInEditMode] = useState(false);
   const [isValueUpdating, setIsValueUpdating] = useState(false);
   const [editedItemName, setEditedItemName] = useState(itemName);
@@ -26,7 +28,7 @@ const ListItemHeader = ({
     if (isValueUpdating) {
       setIsValueUpdating(false);
     }
-  }, [itemName]);
+  }, [itemName, error]);
 
   const save = () => {
     setInEditMode(!inEditMode);

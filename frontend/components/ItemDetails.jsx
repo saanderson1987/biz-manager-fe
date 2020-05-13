@@ -1,22 +1,23 @@
 import React, { useContext, useEffect } from "react";
 import get from "lodash.get";
-import {
-  apiRouteByItemType,
-  itemDetailFieldsByItemType,
-  createItemDetailsGetByIdQueryOptions,
-} from "../constants";
-import { StoreContext } from "../store";
+import { ListDataContext } from "../contexts/ListDataContext";
+import { ListContext } from "../contexts/ListContext";
 import ItemDetail from "./ItemDetail";
 
-const ItemDetails = ({ type, itemId, statePath }) => {
-  const { state, getById, updateRecord } = useContext(StoreContext);
+const ItemDetails = ({ itemId }) => {
+  const { listDataStore } = useContext(ListDataContext);
+  const {
+    getListItemById,
+    updateListItem,
+    statePath,
+    itemDetailFields,
+  } = useContext(ListContext);
 
-  const route = apiRouteByItemType[type];
-  const item = get(state, [...statePath, itemId]);
+  const item = get(listDataStore, [...statePath, itemId]);
 
   useEffect(() => {
     if (itemId) {
-      getById(createItemDetailsGetByIdQueryOptions(type, itemId, statePath));
+      getListItemById(itemId);
     }
   }, [itemId]);
 
@@ -24,18 +25,16 @@ const ItemDetails = ({ type, itemId, statePath }) => {
     item && (
       <table>
         <tbody>
-          {itemDetailFieldsByItemType[type].map((field, i) => (
+          {itemDetailFields.map((field, i) => (
             <ItemDetail
               field={field}
               value={item[field.columnName]}
               updateValue={(newValue) =>
-                updateRecord({
-                  route,
+                updateListItem({
                   id: item.id,
                   record: {
                     [field.columnName]: newValue || null,
                   },
-                  statePath,
                 })
               }
               key={i}
