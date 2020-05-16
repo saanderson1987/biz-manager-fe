@@ -12,10 +12,17 @@ export default {
       attributes: "installationDate",
     },
     queryParamsForGetById: {
-      attributes: "installationDate,completed",
+      attributes: "installationDate,completed,jobOrderId",
     },
     listItemLists: [{ type: "installers" }],
     itemDetailFields: [
+      {
+        columnName: "jobOrderId",
+        displayName: "Job Order",
+        type: "queryDisplay",
+        listType: "jobOrders",
+        isReadOnly: true,
+      },
       {
         columnName: "installationDate",
         displayName: "Install Date",

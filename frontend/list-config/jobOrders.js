@@ -12,7 +12,7 @@ export default {
       attributes: "dateOrdered",
     },
     queryParamsForGetById: {
-      attributes: "dateOrdered",
+      attributes: "dateOrdered,jobId",
     },
     listItemLists: [
       { type: "notes" },
@@ -20,6 +20,12 @@ export default {
       { type: "installations" },
     ],
     itemDetailFields: [
+      {
+        columnName: "jobId",
+        displayName: "Job",
+        type: "queryDisplay",
+        listType: "jobs",
+      },
       { columnName: "dateOrdered", displayName: "Date Ordered", type: "date" },
     ],
     newItemFormFields: [

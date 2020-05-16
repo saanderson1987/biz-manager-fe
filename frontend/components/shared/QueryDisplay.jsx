@@ -11,7 +11,7 @@ const QueryDisplay = ({ itemId }) => {
   );
 
   const item = get(listDataStore, [...statePath, itemId]);
-  const { itemName } = getListItemName(item);
+  const itemName = item ? getListItemName(item).itemName : "";
 
   useEffect(() => {
     if (itemId) {

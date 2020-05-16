@@ -174,12 +174,10 @@ export default class ListConfig {
 
   // ListItem comp
   getListItemName(item) {
-    return item
-      ? {
-          itemName: item.name,
-          itemNameColumnName: "name",
-        }
-      : {};
+    return {
+      itemName: item.name,
+      itemNameColumnName: "name",
+    };
   }
   getItemWarning(item) {}
 
