@@ -3,6 +3,7 @@ import classNames from "classnames";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { capitalize } from "../../../utils";
+import DropdownWithQuery from "./DropdownWithQuery";
 
 // if props.save is defined and props.type is text, then `save` will be called if user presses enter in the text input.
 const Input = ({
@@ -13,6 +14,7 @@ const Input = ({
   save,
   inputRef,
   className,
+  listType, // for DropdownWithQuery type
 }) => {
   const commonInputProps = {
     onKeyUp: ({ keyCode }) => {
@@ -66,7 +68,10 @@ const Input = ({
     return (
       <select
         value={value || ""}
-        onChange={({ target: { value } }) => onChange(value)}
+        onChange={({ target: { value } }) => {
+          console.log(value);
+          onChange(value);
+        }}
         {...commonInputProps}
       >
         {valueOptions.map((option) => (
@@ -99,6 +104,11 @@ const Input = ({
         onChange={({ target: { value } }) => onChange(value)}
         {...commonInputProps}
       />
+    );
+  }
+  if (type === "queryDisplay") {
+    return (
+      <DropdownWithQuery type={listType} value={value} onChange={onChange} />
     );
   }
   return (

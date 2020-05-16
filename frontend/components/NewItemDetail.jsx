@@ -1,6 +1,6 @@
 import React from "react";
-import DropdownWithQuery from "./shared/DropdownWithQuery";
 import Input from "./shared/Input";
+import DropdownWithQueryAndNewButton from "./shared/DropdownWithQueryAndNewButton";
 
 const NewItemDetail = ({
   detailValue,
@@ -15,7 +15,7 @@ const NewItemDetail = ({
     </td>
     <td className="item-detail-value">
       {type === "dropdown-with-query" ? (
-        <DropdownWithQuery
+        <DropdownWithQueryAndNewButton
           value={detailValue}
           type={dropdownItemType}
           onChange={onValueChange}

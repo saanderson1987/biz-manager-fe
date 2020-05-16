@@ -34,6 +34,7 @@ export const ListDataContextProvider = ({ children }) => {
 
   const initialState = {
     clients: {},
+    clientsAndProspects: {},
     installations: {},
     jobOrders: {},
     jobs: {},

@@ -17,10 +17,16 @@ export default {
     },
     queryParamsForGetById: {
       attributes:
-        "name,poNum,status,budgetSentDate,imageProposalSentDate,artPlanSentDate,receivableStatus",
+        "name,poNum,status,budgetSentDate,imageProposalSentDate,artPlanSentDate,receivableStatus,companyId",
     },
     listItemLists: [{ type: "notes" }, { type: "jobOrders" }],
     itemDetailFields: [
+      {
+        columnName: "companyId",
+        displayName: "Company",
+        type: "queryDisplay",
+        listType: "clientsAndProspects",
+      },
       { columnName: "poNum", displayName: "PO #", type: "text" },
       {
         columnName: "status",

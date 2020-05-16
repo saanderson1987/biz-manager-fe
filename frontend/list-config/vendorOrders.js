@@ -1,16 +1,6 @@
 import ListConfig from "./ListConfig";
 import { getDateString } from "../../utils";
 
-// function getItemDoesHaveReplacements(itemId) {
-//   return async function () {
-//     const record = await this.getById(itemId, {
-//       attributes: "doesHaveReplacements",
-//     });
-//     console.log("hi", record);
-//     this.mergeListItemToState(record);
-//   };
-// }
-
 export default {
   params: {
     apiRoute: "vendorOrders",

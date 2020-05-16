@@ -1,7 +1,8 @@
 import React from "react";
 import { getDateString, capitalize } from "../../../utils";
+import QueryDisplay from "./QueryDisplay";
 
-const DisplayValue = ({ value, type, className }) => {
+const DisplayValue = ({ value, type, className, listType }) => {
   let displayValue = value;
   if (type === "checkbox") {
     return (
@@ -18,6 +19,9 @@ const DisplayValue = ({ value, type, className }) => {
     return (value || "")
       .split("\n")
       .map((line, i) => (line ? <div key={i}>{line}</div> : <br key={i} />));
+  }
+  if (type === "queryDisplay") {
+    return <QueryDisplay listType={listType} itemId={value} />;
   }
   return <span className={className}>{displayValue}</span>;
 };

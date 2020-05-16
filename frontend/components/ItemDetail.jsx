@@ -21,6 +21,7 @@ const ItemDetail = ({
     getDisplayValue,
     valueOptions,
     isReadOnly,
+    listType, // for 'queryDisplay' type
   },
   value,
   updateValue,
@@ -75,6 +76,7 @@ const ItemDetail = ({
             type={type}
             onChange={setEditedValue}
             valueOptions={valueOptions}
+            listType={listType}
             save={save}
             inputRef={inputToFocusRef}
             className={classNames({ "text-align-right": type !== "text-box" })}
@@ -83,6 +85,7 @@ const ItemDetail = ({
           <DisplayValue
             value={getDisplayValue ? getDisplayValue(value) : value}
             type={type}
+            listType={listType}
           />
         )}
       </td>
