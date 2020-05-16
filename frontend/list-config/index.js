@@ -1,5 +1,6 @@
 import clients from "./clients";
 import clientsAndProspects from "./clientsAndProspects";
+import companies from "./companies";
 import contacts from "./contacts";
 import installations from "./installations";
 import installers from "./installers";
@@ -14,6 +15,7 @@ import vendors from "./vendors";
 const listConfigs = {
   clients,
   clientsAndProspects,
+  companies,
   contacts,
   installations,
   installers,
@@ -42,6 +44,7 @@ export const createListConfig = ({
 export const tableNameByListType = {
   clients: "Companies",
   clientsAndProspects: "Companies",
+  companies: "Companies",
   prospects: "Companies",
   vendors: "Companies",
   contacts: "People",

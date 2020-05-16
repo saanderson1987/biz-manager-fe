@@ -25,6 +25,7 @@ const List = ({ type }) => {
   const items = Object.values(get(listDataStore, statePath, {})).sort(
     defaultSortListFunc
   );
+
   return (
     <div className={"list"}>
       {!isRoot && <div className="list-name">{listName}:</div>}

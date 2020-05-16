@@ -10,9 +10,15 @@ export default {
       attributes: "name",
     },
     queryParamsForGetById: {
-      attributes: "name,phoneNum,email,position",
+      attributes: "name,phoneNum,email,position,companyId",
     },
     itemDetailFields: [
+      {
+        columnName: "companyId",
+        displayName: "Company",
+        type: "queryDisplay",
+        listType: "companies",
+      },
       { columnName: "name", type: "text" },
       { columnName: "phoneNum", displayName: "Phone Number", type: "text" },
       { columnName: "email", type: "text" },
