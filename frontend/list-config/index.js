@@ -8,6 +8,7 @@ import jobOrders from "./jobOrders";
 import jobs from "./jobs";
 import notes from "./notes";
 import prospects from "./prospects";
+import receivables from "./receivables";
 import vendorOrderReplacements from "./vendorOrderReplacements";
 import vendorOrders from "./vendorOrders";
 import vendors from "./vendors";
@@ -23,6 +24,7 @@ const listConfigs = {
   jobs,
   notes,
   prospects,
+  receivables,
   vendorOrderReplacements,
   vendorOrders,
   vendors,
@@ -44,14 +46,15 @@ export const createListConfig = ({
 export const tableNameByListType = {
   clients: "Companies",
   clientsAndProspects: "Companies",
+  contacts: "People",
   companies: "Companies",
   prospects: "Companies",
-  vendors: "Companies",
-  contacts: "People",
+  installations: "Installations",
+  installers: "Installer",
   jobs: "Jobs",
   jobOrders: "JobOrders",
-  installations: "Installations",
-  vendorOrders: "VendorOrders",
+  receivables: "Jobs",
   vendorOrderReplacements: "VendorOrderReplacements",
-  installers: "Installer",
+  vendorOrders: "VendorOrders",
+  vendors: "Companies",
 };

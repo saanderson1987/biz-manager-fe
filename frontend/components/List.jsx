@@ -60,8 +60,16 @@ const List = ({ type }) => {
   );
 };
 
-export default ({ type, statePath, hooks }) => (
+export default ({ type, statePath, hooks, doIncludeWrapper }) => (
   <ListContextProvider listType={type} statePath={statePath} hooks={hooks}>
-    <List type={type} />
+    {doIncludeWrapper ? (
+      <div className="list-wrapper">
+        <List type={type} />
+      </div>
+    ) : (
+      <List type={type} />
+    )}
   </ListContextProvider>
 );
+
+<wrap></wrap>;

@@ -26,19 +26,20 @@ const ItemDetails = ({ itemId }) => {
       <table>
         <tbody>
           {itemDetailFields.map((field, i) => (
-            <ItemDetail
-              field={field}
-              value={item[field.columnName]}
-              updateValue={(newValue) =>
-                updateListItem({
-                  id: item.id,
-                  record: {
-                    [field.columnName]: newValue || null,
-                  },
-                })
-              }
-              key={i}
-            />
+            <tr key={i}>
+              <ItemDetail
+                field={field}
+                value={item[field.columnName]}
+                updateValue={(newValue) =>
+                  updateListItem({
+                    id: item.id,
+                    record: {
+                      [field.columnName]: newValue || null,
+                    },
+                  })
+                }
+              />
+            </tr>
           ))}
         </tbody>
       </table>

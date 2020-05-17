@@ -13,14 +13,12 @@ export default () => (
       <Route
         exact
         path="/companies/clients"
-        render={() => <List type="clients" statePath={["clients"]} isRoot />}
+        render={() => <List type="clients" statePath={["clients"]} />}
       />
       <Route
         exact
         path="/companies/prospects"
-        render={() => (
-          <List type="prospects" statePath={["prospects"]} isRoot />
-        )}
+        render={() => <List type="prospects" statePath={["prospects"]} />}
       />
       <Redirect exact from="/companies" to="/companies/clients" />
     </Switch>

@@ -60,7 +60,7 @@ const ItemDetail = ({
   const inputToFocusRef = createRef();
 
   return (
-    <tr>
+    <>
       <td className="item-detail-name">
         {displayName
           ? displayName
@@ -100,7 +100,7 @@ const ItemDetail = ({
           />
         </td>
       )}
-    </tr>
+    </>
   );
 };
 
