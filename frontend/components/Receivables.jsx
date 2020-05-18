@@ -3,6 +3,29 @@ import get from "lodash.get";
 import { ListDataContext } from "../contexts/ListDataContext";
 import { ListContext, ListContextProvider } from "../contexts/ListContext";
 import ItemDetail from "./ItemDetail";
+import { RECEIVABLE_STATUSES } from "../list-config/jobs";
+import Input from "./shared/Input";
+
+const Filter = ({ filters, setFilters }) => {
+  return (
+    <div className="filter">
+      <span className="filter-el">Filter:</span>
+      {Object.entries(filters).map(([filter, value]) => (
+        <label className="filter-el">
+          <Input
+            type="checkbox"
+            value={value}
+            onChange={(newVal) =>
+              setFilters((prev) => ({ ...prev, [filter]: newVal }))
+            }
+            className="filter-checkbox"
+          />
+          <span>{filter}</span>
+        </label>
+      ))}
+    </div>
+  );
+};
 
 const Receivables = ({ type }) => {
   const { listDataStore } = useContext(ListDataContext);
@@ -18,12 +41,20 @@ const Receivables = ({ type }) => {
     getListItems();
   }, [type]);
 
-  const items = Object.values(get(listDataStore, statePath, {})).sort(
-    defaultSortListFunc
+  const [filters, setFilters] = useState(
+    RECEIVABLE_STATUSES.reduce((acc, status) => {
+      acc[status] = true;
+      return acc;
+    }, {})
   );
 
+  const items = Object.values(get(listDataStore, statePath, {}))
+    .filter((item) => filters[item.receivableStatus])
+    .sort(defaultSortListFunc);
+
   return (
-    <div className="simple-list">
+    <div className="receivables">
+      <Filter filters={filters} setFilters={setFilters} />
       <table>
         <tbody>
           {items.map((item) => (

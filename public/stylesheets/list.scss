@@ -75,19 +75,33 @@ div.list-items--root > div.list-item--first {
   display: inline-block;
 }
 
-.simple-list {
+.receivables {
   background-color: $white;
 }
 
-.simple-list tr {
+.receivables tr {
   border: 1px solid #e4e4e4;
   border-top: none;
 }
 
-.simple-list td:nth-child(1) {
+.receivables td:nth-child(1) {
   padding-left: 10px;
 }
 
-.simple-list td {
+.receivables td {
   white-space: nowrap;
+}
+
+.filter {
+  border: 1px solid #e4e4e4;
+  border-top: none;
+  padding: 20px 20px 20px 10px;
+}
+
+.filter-el {
+  margin-right: 20px;
+}
+
+.filter-checkbox {
+  margin-right: 5px;
 }

@@ -1,5 +1,7 @@
 import ListConfig from "./ListConfig";
 
+export const RECEIVABLE_STATUSES = ["PO sent", "50% paid", "100% paid"];
+
 const jobStatusDisplayNameByType = {
   inProgress: "In Progress",
   onHold: "On Hold",
