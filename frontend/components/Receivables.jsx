@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import get from "lodash.get";
-import { ListDataContext } from "../contexts/ListDataContext";
+import {
+  ListDataContextProvider,
+  ListDataContext,
+} from "../contexts/ListDataContext";
 import { ListContext, ListContextProvider } from "../contexts/ListContext";
 import ItemDetail from "./ItemDetail";
 import { RECEIVABLE_STATUSES } from "../list-config/jobs";
@@ -27,7 +30,7 @@ const Filter = ({ filters, setFilters }) => {
   );
 };
 
-const Receivables = ({ type }) => {
+const Receivables = () => {
   const { listDataStore } = useContext(ListDataContext);
   const {
     getListItems,
@@ -39,7 +42,7 @@ const Receivables = ({ type }) => {
 
   useEffect(() => {
     getListItems();
-  }, [type]);
+  }, []);
 
   const [filters, setFilters] = useState(
     RECEIVABLE_STATUSES.reduce((acc, status) => {
@@ -93,14 +96,12 @@ const Receivables = ({ type }) => {
   );
 };
 
-export default ({ type, statePath, hooks, doIncludeWrapper }) => (
-  <ListContextProvider listType={type} statePath={statePath} hooks={hooks}>
-    {doIncludeWrapper ? (
-      <div className="list-wrapper">
-        <Receivables type={type} />
-      </div>
-    ) : (
-      <Receivables type={type} />
-    )}
-  </ListContextProvider>
+export default () => (
+  <div className="list-wrapper">
+    <ListDataContextProvider>
+      <ListContextProvider listType={"receivables"} statePath={["receivables"]}>
+        <Receivables />
+      </ListContextProvider>
+    </ListDataContextProvider>
+  </div>
 );

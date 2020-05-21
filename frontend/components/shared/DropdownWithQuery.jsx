@@ -1,7 +1,10 @@
 import React, { useEffect, useContext } from "react";
 import get from "lodash.get";
 import { ListContext, ListContextProvider } from "../../contexts/ListContext";
-import { ListDataContext } from "../../contexts/ListDataContext";
+import {
+  ListDataContextProvider,
+  ListDataContext,
+} from "../../contexts/ListDataContext";
 import Input from "./Input";
 
 const DropdownWithQuery = ({ value, onChange }) => {
@@ -43,7 +46,9 @@ const DropdownWithQuery = ({ value, onChange }) => {
 };
 
 export default ({ type, value, onChange }) => (
-  <ListContextProvider listType={type} statePath={[type]}>
-    <DropdownWithQuery value={value} onChange={onChange} />
-  </ListContextProvider>
+  <ListDataContextProvider type={type}>
+    <ListContextProvider listType={type} statePath={[type]}>
+      <DropdownWithQuery value={value} onChange={onChange} />
+    </ListContextProvider>
+  </ListDataContextProvider>
 );

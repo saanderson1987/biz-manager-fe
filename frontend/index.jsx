@@ -5,17 +5,14 @@ import "../public/stylesheets/main.scss";
 import { AuthenticationContextProvider } from "./contexts/AuthenticationContext";
 import Protected from "./components/Protected";
 import App from "./components/App";
-import { ListDataContextProvider } from "./contexts/ListDataContext";
 
 render(
   <AuthenticationContextProvider>
-    <ListDataContextProvider>
-      <BrowserRouter>
-        <Protected>
-          <Route path="/" component={App} />
-        </Protected>
-      </BrowserRouter>
-    </ListDataContextProvider>
+    <BrowserRouter>
+      <Protected>
+        <Route path="/" component={App} />
+      </Protected>
+    </BrowserRouter>
   </AuthenticationContextProvider>,
   document.getElementById("root")
 );

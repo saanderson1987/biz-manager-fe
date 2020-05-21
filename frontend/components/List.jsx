@@ -1,7 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import classNames from "classnames";
 import get from "lodash.get";
-import { ListDataContext } from "../contexts/ListDataContext";
+import {
+  ListDataContextProvider,
+  ListDataContext,
+} from "../contexts/ListDataContext";
 import { ListContext, ListContextProvider } from "../contexts/ListContext";
 import ListItem from "./ListItem";
 import NewItemModal from "./NewItemModal";
@@ -60,16 +63,22 @@ const List = ({ type }) => {
   );
 };
 
-export default ({ type, statePath, hooks, doIncludeWrapper }) => (
+const ListWithListContext = ({ type, statePath, hooks }) => (
   <ListContextProvider listType={type} statePath={statePath} hooks={hooks}>
-    {doIncludeWrapper ? (
-      <div className="list-wrapper">
-        <List type={type} />
-      </div>
-    ) : (
-      <List type={type} />
-    )}
+    <List type={type} />
   </ListContextProvider>
 );
 
-<wrap></wrap>;
+export const RootList = ({ type }) => (
+  <ListDataContextProvider type={type}>
+    <ListWithListContext type={type} statePath={[type]} />
+  </ListDataContextProvider>
+);
+
+export const RootListWithBorder = ({ type }) => (
+  <div className="list-wrapper">
+    <RootList type={type} />
+  </div>
+);
+
+export default ListWithListContext;

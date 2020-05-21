@@ -39,7 +39,7 @@ const useReducerWithLogger = (reducer, initialState) => {
   return [state, dispatchWithLogger];
 };
 
-export const ListDataContextProvider = ({ children }) => {
+export const ListDataContextProvider = ({ type, children }) => {
   const reducer = (oldState, action) => {
     switch (action.type) {
       case "mergeListItems":
@@ -64,14 +64,7 @@ export const ListDataContextProvider = ({ children }) => {
   };
 
   const initialState = {
-    clients: {},
-    clientsAndProspects: {},
-    companies: {},
-    installations: {},
-    jobOrders: {},
-    jobs: {},
-    prospects: {},
-    vendors: {},
+    [type]: {},
   };
 
   let _useReducer = useReducer;

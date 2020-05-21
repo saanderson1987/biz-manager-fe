@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { Tabs, Tab } from "./Tabs";
-import List from "./List";
+import { RootList } from "./List";
 
 export default () => (
   <div className="root-container">
@@ -13,12 +13,12 @@ export default () => (
       <Route
         exact
         path="/companies/clients"
-        render={() => <List type="clients" statePath={["clients"]} />}
+        render={() => <RootList type="clients" statePath={["clients"]} />}
       />
       <Route
         exact
         path="/companies/prospects"
-        render={() => <List type="prospects" statePath={["prospects"]} />}
+        render={() => <RootList type="prospects" statePath={["prospects"]} />}
       />
       <Redirect exact from="/companies" to="/companies/clients" />
     </Switch>
