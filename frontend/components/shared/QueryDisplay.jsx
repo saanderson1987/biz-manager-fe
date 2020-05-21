@@ -1,7 +1,10 @@
 import React, { useEffect, useContext } from "react";
 import get from "lodash.get";
 import { ListContext, ListContextProvider } from "../../contexts/ListContext";
-import { ListDataContext } from "../../contexts/ListDataContext";
+import {
+  ListDataContextProvider,
+  ListDataContext,
+} from "../../contexts/ListDataContext";
 import DisplayValue from "./DisplayValue";
 
 const QueryDisplay = ({ itemId }) => {
@@ -22,7 +25,9 @@ const QueryDisplay = ({ itemId }) => {
   return <DisplayValue value={itemName} />;
 };
 export default ({ listType, itemId }) => (
-  <ListContextProvider listType={listType} statePath={[listType]}>
-    <QueryDisplay itemId={itemId} />
-  </ListContextProvider>
+  <ListDataContextProvider type={listType}>
+    <ListContextProvider listType={listType} statePath={[listType]}>
+      <QueryDisplay itemId={itemId} />
+    </ListContextProvider>
+  </ListDataContextProvider>
 );
