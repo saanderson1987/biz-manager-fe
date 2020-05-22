@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ListContext } from "../../contexts/ListContext";
 import DropdownWithQuery from "./DropdownWithQuery";
 import NewItemModal from "../NewItemModal";
 
 export default ({ type, value, onChange }) => {
+  const { listItemTypeName } = useContext(ListContext);
   const [isNewItemModalVisible, setIsNewItemModalVisible] = useState(false);
 
   return (

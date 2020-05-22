@@ -32,6 +32,13 @@ export default {
     ],
     newItemFormFields: [
       {
+        columnName: "jobOrderId",
+        displayName: "Job Order",
+        type: "queryDisplay",
+        listType: "jobOrders",
+        isReadOnly: true,
+      },
+      {
         columnName: "installationDate",
         displayName: "Install Date",
         type: "date",

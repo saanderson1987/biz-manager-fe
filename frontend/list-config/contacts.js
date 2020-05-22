@@ -26,6 +26,12 @@ export default {
     ],
     newItemFormFields: [
       { columnName: "name" },
+      {
+        columnName: "companyId",
+        displayName: "Company",
+        type: "queryDisplay",
+        listType: "companies",
+      },
       { columnName: "phoneNum", displayName: "Phone Number" },
       { columnName: "email" },
       { columnName: "position" },

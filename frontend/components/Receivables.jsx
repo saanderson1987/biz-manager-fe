@@ -67,7 +67,6 @@ const Receivables = () => {
                   displayName: getListItemName(item).itemName,
                   type: "dropdown",
                   valueOptions: [
-                    { value: null, displayName: "" },
                     {
                       value: "PO sent",
                     },

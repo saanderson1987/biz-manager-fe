@@ -5,7 +5,14 @@ import DropdownWithQueryAndNewButton from "./shared/DropdownWithQueryAndNewButto
 const NewItemDetail = ({
   detailValue,
   onValueChange,
-  field: { displayName, columnName, type, valueOptions, dropdownItemType },
+  field: {
+    displayName,
+    columnName,
+    type,
+    valueOptions,
+    dropdownItemType,
+    listType,
+  },
 }) => (
   <tr>
     <td className="item-detail-name">
@@ -26,6 +33,7 @@ const NewItemDetail = ({
           type={type}
           onChange={onValueChange}
           valueOptions={valueOptions}
+          listType={listType}
         />
       )}
     </td>

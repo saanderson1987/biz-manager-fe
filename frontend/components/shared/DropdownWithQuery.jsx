@@ -29,13 +29,14 @@ const DropdownWithQuery = ({ value, onChange }) => {
     <Input
       value={value}
       type={"dropdown"}
+      placeholder={` -- Select a ${listItemTypeName} -- `}
       onChange={onChange}
       valueOptions={[
-        {
-          value: "",
-          displayName: ` -- select a ${listItemTypeName} -- `,
-          isDisabled: true,
-        },
+        // {
+        //   value: "",
+        //   displayName: ` -- select a ${listItemTypeName} -- `,
+        //   isDisabled: true,
+        // },
         ...items.map((item) => ({
           value: item.id,
           displayName: getListItemName(item).itemName,

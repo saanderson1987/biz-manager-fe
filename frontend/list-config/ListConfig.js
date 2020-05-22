@@ -1,4 +1,5 @@
 import axios from "axios";
+import { nullifyEmptyStrings } from "../../utils";
 
 axios.defaults.withCredentials = true;
 
@@ -114,7 +115,7 @@ export default class ListConfig {
         this.hooks.onAdd();
       }
     } catch (e) {
-      this.dispatchToListDataStore({ type: "logError", data: e.toString() });
+      this.handleDataQueryError(e);
     }
   }
   async getListItems() {
@@ -124,7 +125,7 @@ export default class ListConfig {
       );
       this.mergeListItemsToState(itemsById);
     } catch (e) {
-      this.dispatchToListDataStore({ type: "logError", data: e.toString() });
+      this.handleDataQueryError(e);
     }
   }
   async getListItemById(id) {
@@ -132,7 +133,7 @@ export default class ListConfig {
       const { data: item } = await this.getById(id, this.queryParamsForGetById);
       this.mergeListItemToState(item);
     } catch (e) {
-      this.dispatchToListDataStore({ type: "logError", data: e.toString() });
+      this.handleDataQueryError(e);
     }
   }
   async updateListItem({ id, record }) {
@@ -144,7 +145,7 @@ export default class ListConfig {
       });
       this.mergeListItemToState(updatedItem);
     } catch (e) {
-      this.dispatchToListDataStore({ type: "logError", data: e.toString() });
+      this.handleDataQueryError(e);
     }
   }
   async deleteListItem(id) {
@@ -155,8 +156,16 @@ export default class ListConfig {
         this.hooks.onDelete();
       }
     } catch (e) {
-      this.dispatchToListDataStore({ type: "logError", data: e.toString() });
+      this.handleDataQueryError(e);
     }
+  }
+  handleDataQueryError(e) {
+    let message = e.toString();
+    const detailedMessage = e.response?.data?.message;
+    if (detailedMessage) {
+      message += "; " + detailedMessage;
+    }
+    this.dispatchToListDataStore({ type: "logError", data: message });
   }
   //
 
@@ -187,7 +196,7 @@ export default class ListConfig {
     if (this.parentColumn && this.parentId) {
       baseRecord[this.parentColumn] = this.parentId;
     }
-    return { ...baseRecord, ...newRecord };
+    return { ...baseRecord, ...nullifyEmptyStrings(newRecord) };
   }
 
   // utils

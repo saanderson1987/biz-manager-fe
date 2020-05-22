@@ -51,7 +51,6 @@ export default {
         displayName: "Receivable Status",
         type: "dropdown",
         valueOptions: [
-          { value: null, displayName: "" },
           {
             value: "PO sent",
           },
@@ -79,9 +78,16 @@ export default {
     ],
     newItemFormFields: [
       { columnName: "name" },
+      {
+        columnName: "companyId",
+        displayName: "Company",
+        type: "queryDisplay",
+        listType: "clientsAndProspects",
+      },
       { columnName: "poNum", displayName: "PO #" },
       {
         columnName: "receivableStatus",
+        displayName: "Receivable Status",
         type: "dropdown",
         valueOptions: [
           {

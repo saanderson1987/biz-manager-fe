@@ -9,6 +9,7 @@ import DropdownWithQuery from "./DropdownWithQuery";
 const Input = ({
   type,
   value,
+  placeholder,
   onChange,
   valueOptions,
   save,
@@ -69,12 +70,14 @@ const Input = ({
       <select
         value={value || ""}
         onChange={({ target: { value } }) => {
-          console.log(value);
           onChange(value);
         }}
         {...commonInputProps}
       >
-        {valueOptions.map((option) => (
+        {[
+          { value: "", displayName: placeholder || "", isDisabled: true },
+          ...valueOptions,
+        ].map((option) => (
           <option
             value={option.value}
             disabled={option.isDisabled}

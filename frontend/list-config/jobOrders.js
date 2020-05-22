@@ -29,6 +29,12 @@ export default {
       { columnName: "dateOrdered", displayName: "Date Ordered", type: "date" },
     ],
     newItemFormFields: [
+      {
+        columnName: "jobId",
+        displayName: "Job",
+        type: "queryDisplay",
+        listType: "jobs",
+      },
       { columnName: "dateOrdered", displayName: "Date Ordered", type: "date" },
     ],
   },

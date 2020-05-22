@@ -3,12 +3,14 @@ import { AuthenticationContext } from "../contexts/AuthenticationContext";
 import { ListContext } from "../contexts/ListContext";
 import NewItemDetail from "./NewItemDetail";
 
-const createPendingNewRecord = (newItemFormFields) =>
+const createPendingNewRecord = (newItemFormFields, parentColumn, parentId) =>
   newItemFormFields.reduce((acc, field) => {
     if (field.type === "checkbox") {
       acc[field.columnName] = false;
     } else if (field.type === "date") {
       acc[field.columnName] = new Date();
+    } else if (parentColumn === field.columnName && parentId) {
+      acc[field.columnName] = parentId;
     } else {
       acc[field.columnName] = "";
     }
@@ -24,10 +26,12 @@ const NewItemForm = ({ closeModal }) => {
     listItemTypeName,
     createListItem,
     addNewItemBaseRecord,
+    parentColumn,
+    parentId,
   } = useContext(ListContext);
 
   const [pendingNewRecord, setPendingNewRecord] = useState(
-    createPendingNewRecord(newItemFormFields)
+    createPendingNewRecord(newItemFormFields, parentColumn, parentId)
   );
 
   return (

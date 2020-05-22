@@ -23,3 +23,13 @@ export const uncapitalize = (string) => {
 export const getDateString = (date) => {
   return date ? moment(date).locale(moment.locale()).format("L") : date;
 };
+
+export const nullifyEmptyStrings = (obj) =>
+  Object.entries(obj).reduce((acc, [key, val]) => {
+    if (val === "") {
+      acc[key] = null;
+    } else {
+      acc[key] = val;
+    }
+    return acc;
+  }, {});

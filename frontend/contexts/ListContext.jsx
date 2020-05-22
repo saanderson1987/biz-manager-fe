@@ -23,6 +23,8 @@ export const ListContextProvider = ({
     <ListContext.Provider
       value={{
         statePath: listConfig.statePath,
+        parentColumn: listConfig.parentColumn,
+        parentId: listConfig.parentId,
         // dataQueryFunctions
         createListItem: listConfig.createListItem,
         getListItems: listConfig.getListItems,
